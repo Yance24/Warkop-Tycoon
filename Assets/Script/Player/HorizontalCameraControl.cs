@@ -38,6 +38,14 @@ public class HorizontalCameraControl : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 bufferDirection;
     private float currentAcceleration;
+
+    public float CurrentSpeed{
+        get{return currentAcceleration;}
+    }
+
+    public Vector2 BufferDirection{
+        get{return bufferDirection;}
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -57,6 +65,7 @@ public class HorizontalCameraControl : MonoBehaviour
     void FixedUpdate(){
         checkInput();
         processAcceleration();
+        checkBorder();
         executeMovement();
     }
 
@@ -78,10 +87,12 @@ public class HorizontalCameraControl : MonoBehaviour
         currentAcceleration = Mathf.Clamp(currentAcceleration,0,cameraSpeed);
     }
 
-    private void executeMovement(){
-        if(leftBorder && bufferDirection.x <= 0 && screenEdges.worldLeft <= leftBorder.position.x) return;
-        if(rightBorder && bufferDirection.x >= 0 && screenEdges.worldRight >= rightBorder.position.x) return;
+    private void checkBorder(){
+        if(leftBorder && bufferDirection.x <= 0 && screenEdges.worldLeft <= leftBorder.position.x) currentAcceleration = 0;
+        if(rightBorder && bufferDirection.x >= 0 && screenEdges.worldRight >= rightBorder.position.x) currentAcceleration = 0;
+    }
 
+    private void executeMovement(){
         transform.Translate(bufferDirection * currentAcceleration * Time.deltaTime);        
     }
 
