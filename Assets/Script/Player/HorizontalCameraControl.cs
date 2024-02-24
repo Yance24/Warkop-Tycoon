@@ -70,6 +70,7 @@ public class HorizontalCameraControl : MonoBehaviour
     }
 
     private void checkInput(){
+        if(mousePosition.y >= 0 && mousePosition.x >= 0 && mousePosition.x <= Screen.width && mousePosition.y <= Screen.height)
         if(mousePosition.y >= screenEdges.bottom && mousePosition.y <= screenEdges.top){
             if(mousePosition.x >= screenEdges.right) moveDirection.x = 1;
 
@@ -77,6 +78,7 @@ public class HorizontalCameraControl : MonoBehaviour
 
             else moveDirection = Vector2.zero;
         }else moveDirection = Vector2.zero;
+        else moveDirection = Vector2.zero;
 
         if(moveDirection != Vector2.zero) bufferDirection = moveDirection;
     }
