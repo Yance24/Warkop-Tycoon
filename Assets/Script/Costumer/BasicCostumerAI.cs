@@ -1,18 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class BasicCostumerAI : MonoBehaviour
+public class BasicCostumerAI : BaseNpcAI
 {
-    // Start is called before the first frame update
-    void Start()
+    private CostumerOrdering costumerOrdering;
+    private CostumerEnjoyMeal costumerEnjoyMeal;
+
+    
+    private BaseNpcBehavior currentAction;
+
+    void Awake()
     {
-        
+        costumerOrdering = GetComponent<CostumerOrdering>();
+        costumerEnjoyMeal = GetComponent<CostumerEnjoyMeal>();
+        Invoke("pickAction",0.1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void pickAction(){
+        currentAction = null;
+        if(!costumerOrdering.IsFinished) currentAction = costumerOrdering;
+        else if(!costumerEnjoyMeal.IsFinished) currentAction = costumerEnjoyMeal;
+
+        if(currentAction){
+            currentAction.execute();
+            StartCoroutine(checkFinished());
+        }
+    }
+
+    IEnumerator checkFinished(){
+        while(!currentAction.IsFinished) yield return new WaitForFixedUpdate();
+        Invoke("pickAction",0.1f);
+        yield break;
+    }
+
+    private void consider(){
+
     }
 }
