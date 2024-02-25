@@ -4,104 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class BasicCostumerAI : MonoBehaviour
+public class BasicCostumerAI : BaseNpcAI
 {
-    private bool isAlreadyOrdering = false;
-    private bool isAlreadySeated = false;
-    private bool isAlreadyFinish = false;
-    private CostumerMovement movement;
+    private CostumerOrdering costumerOrdering;
+    private CostumerEnjoyMeal costumerEnjoyMeal;
 
-    public bool IsAlreadyOrdering{
-        set{
-            isAlreadyOrdering = value;
-            pickAction();
-        }
-    }
-    public bool IsAlreadySeated{
-        set{
-            isAlreadySeated = value;
-            pickAction();
-        }
-    }
-    public bool IsAlreadyFinish{
-        set{
-            isAlreadyFinish = value;
-            pickAction();
-        }
-    }
+    
+    private BaseNpcBehavior currentAction;
 
     void Awake()
     {
-        movement = GetComponent<CostumerMovement>();
-        pickAction();
+        costumerOrdering = GetComponent<CostumerOrdering>();
+        costumerEnjoyMeal = GetComponent<CostumerEnjoyMeal>();
+        Invoke("pickAction",0.1f);
     }
 
-    private void pickAction(){
-        if(!isAlreadyOrdering) StartCoroutine(ordering());
-        else if(!isAlreadySeated) StartCoroutine(takeSeat());
-        else if(isAlreadyFinish) consider();
-    }
+    public override void pickAction(){
+        currentAction = null;
+        if(!costumerOrdering.IsFinished) currentAction = costumerOrdering;
+        else if(!costumerEnjoyMeal.IsFinished) currentAction = costumerEnjoyMeal;
 
-    IEnumerator ordering(){
-        yield return new WaitForFixedUpdate();
-        GameObject counter = GameObject.FindGameObjectWithTag("Counter");
-        CounterData counterData = counter.GetComponent<CounterData>();        
-        counterData.npcLines.Add(transform.gameObject);
-        // Debug.Log("Add : "+transform.gameObject);
-
-        while(!movement.IsReached){
-            checkCounter(counter,counterData);
-            yield return new WaitForFixedUpdate();
+        if(currentAction){
+            currentAction.execute();
+            StartCoroutine(checkFinished());
         }
-
-        // counterData.isAvailable = false;
-        yield return new WaitForSeconds(5);
-        // counterData.isAvailable = true;
-        isAlreadyOrdering = true;
-        counterData.npcLines.Remove(transform.gameObject);
-        pickAction();
-        yield break;
     }
 
-    private void checkCounter(GameObject counter, CounterData data){
-        if(data.getIndex(transform.gameObject) == 0) movement.setTarget(counter.transform.position,true);
-        else 
-            if(data.isFacingLeft)
-                movement.setTarget(new Vector2(counter.transform.position.x - data.lineLength * data.getIndex(transform.gameObject),transform.position.y),false);
-            else
-                movement.setTarget(new Vector2(counter.transform.position.x + data.lineLength * data.getIndex(transform.gameObject),transform.position.y),false);
-            
-
-        if(!movement.IsMoving) {
-            movement.setFlipX(!data.isFacingLeft);
-        }
-
-    }
-
-    IEnumerator takeSeat(){
-        GameObject[] seats = GameObject.FindGameObjectsWithTag("Seats");
-        FacilityData seatData = null;
-        foreach(GameObject data in seats){
-            seatData = data.GetComponent<FacilityData>();
-            if(seatData.isAvailable){
-                seatData.isAvailable = false;
-                movement.setTarget(data.transform.position,true);
-                break;
-            }
-        }
-
-        while(!movement.IsReached) yield return new WaitForFixedUpdate();
-        movement.setFlipX(seatData.isFacingLeft);
+    IEnumerator checkFinished(){
+        while(!currentAction.IsFinished) yield return new WaitForFixedUpdate();
+        Invoke("pickAction",0.1f);
         yield break;
     }
 
     private void consider(){
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

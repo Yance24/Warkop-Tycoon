@@ -11,7 +11,6 @@ public class CostumerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private bool isMoving = false;
     private bool isReached = false;
-    private bool isMainTarget;
 
     public bool IsMoving{
         get{return isMoving;}
@@ -19,10 +18,6 @@ public class CostumerMovement : MonoBehaviour
 
     public bool IsReached{
         get{return isReached;}
-    }
-
-    public bool IsMainTarget{
-        get{return isMainTarget;}
     }
 
     // Start is called before the first frame update
@@ -34,9 +29,6 @@ public class CostumerMovement : MonoBehaviour
     void FixedUpdate(){
         if(isMoving){
             transform.Translate(moveDirection * speed * Time.fixedDeltaTime);
-            // Debug.Log("MoveDirection : "+moveDirection);
-            // Debug.Log("position : "+transform.position);
-            // Debug.Log("target : "+target);
             checkReachedTarget();
         }
     }
@@ -44,14 +36,14 @@ public class CostumerMovement : MonoBehaviour
     private void checkReachedTarget(){
         if((moveDirection.x > 0 && transform.position.x >= target.x) || (moveDirection.x < 0 && transform.position.x <= target.x)){
             isMoving = false;
-            if(isMainTarget) isReached = true;
+            isReached = true;
             transform.position = new Vector2(target.x,transform.position.y);
         }
     }
 
-    public void setTarget(Vector2 target, bool mainTarget){
+    public void setTarget(Vector2 target){
+        if(this.target == target) return;
         this.target = target;
-        isMainTarget = mainTarget;
         isReached = false;
         getDirection();
         StartCoroutine(flipSprite());
