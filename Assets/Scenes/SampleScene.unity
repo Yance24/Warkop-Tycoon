@@ -1218,7 +1218,7 @@ GameObject:
   - component: {fileID: 1993413481}
   m_Layer: 0
   m_Name: CostumerSpawn
-  m_TagString: Untagged
+  m_TagString: EntranceDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -18,7 +18,11 @@ public class BaseCostumerSpawner : MonoBehaviour
         yield return new WaitForSeconds(3);
         obj = Instantiate(costumer);
         obj.transform.position = transform.position;
-        
-        yield break;
+
+        while(true){
+            yield return new WaitForSeconds(Random.Range(10,20));
+            obj = Instantiate(costumer);
+            obj.transform.position = transform.position;
+        }
     }
 }

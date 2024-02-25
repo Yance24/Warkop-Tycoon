@@ -8,22 +8,31 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
     protected GameObject seat;
     protected FacilityData seatData;
 
+    protected override void setup()
+    {
+        base.setup();
+        seat = null;
+        seatData = null;
+    }
+
     public override void execute()
     {
         base.execute();
-        seat = null;
         StartCoroutine(takeSeat());
     }
 
     protected IEnumerator takeSeat(){
         while(!seat){
             getSeat();
-            yield return new WaitForSeconds(1);
+            if(!seat) yield return new WaitForSeconds(1);
         }
+
+        movement.setTarget(seat.transform.position);
 
         while(!movement.IsReached){
             yield return new WaitForFixedUpdate();
         }
+
         setFlipSprite();
         StartCoroutine(enjoyMeal());
         yield break;
@@ -40,7 +49,6 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
             if(seatData.isAvailable){
                 seat = data;
                 seatData.isAvailable = false;
-                movement.setTarget(data.transform.position);
                 break;
             }
         }
@@ -49,15 +57,20 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
 
     protected IEnumerator enjoyMeal(){
         Debug.Log("enjoying Meal...");
-        yield return new WaitForSeconds(100);
+        yield return new WaitForSeconds(5);
         finish();
         yield break;
     }
 
     protected override void finish()
     {
-        seatData.isAvailable = true;
         base.finish();
+    }
+
+    public void finishSeat(){
+        seat = null;
+        seatData.isAvailable = true;
+        seatData = null;
     }
 
 }
