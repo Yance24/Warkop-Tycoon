@@ -51,7 +51,6 @@ public class HorizontalCameraControl : MonoBehaviour
     void Start()
     {
         screenEdges = new ScreenEdges();
-        getScreenEdges();
     }
 
     private void getScreenEdges(){
@@ -63,6 +62,7 @@ public class HorizontalCameraControl : MonoBehaviour
 
 
     void FixedUpdate(){
+        getScreenEdges();
         checkInput();
         processAcceleration();
         checkBorder();
