@@ -916,8 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05ad77258c121a4aaf474effbe4a9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsCycle: 0
-  minutesCycle: 3
+  secondsCycle: 30
+  minutesCycle: 0
   hoursCycle: 0
 --- !u!4 &1375061324
 Transform:

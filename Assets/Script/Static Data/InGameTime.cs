@@ -3,6 +3,7 @@ public static class InGameTime
     static int seconds;
     static int minutes;
     static int hours;
+    public static bool closingTime = false;
 
     public static int Seconds{
         get{
@@ -41,6 +42,7 @@ public static class InGameTime
         seconds = 0;
         minutes = 0;
         hours = 0;
+        closingTime = false;
     }
 
     public static string getTime(){

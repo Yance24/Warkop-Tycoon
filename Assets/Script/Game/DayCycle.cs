@@ -21,9 +21,11 @@ public class DayCycle : MonoBehaviour
             yield return new WaitForSeconds(1);
             InGameTime.Seconds++;
             setPercentage();
-            Debug.Log(percentage+"%");
+            Debug.Log(InGameTime.getTime());
         }
-        Debug.Log("End Cycle!!!");
+        Debug.Log("EndCycle!!");
+        InGameTime.closingTime = true;
+        StartCoroutine(handleEndCycle());
     }
 
     bool checkEndCycle(){
@@ -39,5 +41,14 @@ public class DayCycle : MonoBehaviour
         int currentTotalTime = (InGameTime.Hours * 3600) + (InGameTime.Minutes * 60) + InGameTime.Seconds;
         int cycleTotalTime = (hoursCycle * 3600) + (minutesCycle * 60) + secondsCycle;
         percentage = 100 * currentTotalTime / cycleTotalTime;
+    }
+
+    
+    IEnumerator handleEndCycle(){
+        while(!Costumer.noCostumer()){
+            yield return new WaitForSeconds(1);
+        }
+        Debug.Log("Closing!!");
+        yield break;
     }
 }

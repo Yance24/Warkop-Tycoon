@@ -5,24 +5,38 @@ using UnityEngine;
 public class BaseCostumerSpawner : MonoBehaviour
 {
     public GameObject costumer;
+    // private List<GameObject> spawnedCostumer;
+
+    // public List<GameObject> SpawnedCostumer{
+    //     get{
+    //         return spawnedCostumer;
+    //     }
+    // }
+
     void Start(){
-        StartCoroutine(spawnCostumer());
+        // spawnedCostumer = new List<GameObject>();
+        StartCoroutine(spawner());
     }
 
-    IEnumerator spawnCostumer(){
+    IEnumerator spawner(){
+        spawnCostumer(costumer);
+        yield return new WaitForSeconds(4);
+        spawnCostumer(costumer);
+        yield return new WaitForSeconds(3);
+
+        while(!InGameTime.closingTime){
+            spawnCostumer(costumer);
+            yield return new WaitForSeconds(Random.Range(10,20));
+        }
+    }
+
+    void spawnCostumer(GameObject costumer){
         GameObject obj = Instantiate(costumer);
         obj.transform.position = transform.position;
-        yield return new WaitForSeconds(4);
-        obj = Instantiate(costumer);
-        obj.transform.position = transform.position;
-        yield return new WaitForSeconds(3);
-        obj = Instantiate(costumer);
-        obj.transform.position = transform.position;
+        Costumer.spawnedCostumer.Add(obj);
+    }
 
-        while(true){
-            yield return new WaitForSeconds(Random.Range(10,20));
-            obj = Instantiate(costumer);
-            obj.transform.position = transform.position;
-        }
+    public void removeCostumer(GameObject costumer){
+        if(Costumer.spawnedCostumer.Remove(costumer)) Destroy(costumer);
     }
 }
