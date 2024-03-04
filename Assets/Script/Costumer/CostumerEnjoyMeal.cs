@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CostumerEnjoyMeal : BaseNpcBehavior
 {
-    protected GameObject seat;
+    public GameObject seat;
     protected FacilityData seatData;
 
     protected override void setup()
@@ -22,10 +22,10 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
     }
 
     protected IEnumerator takeSeat(){
-        while(!seat){
-            getSeat();
-            if(!seat) yield return new WaitForSeconds(1);
-        }
+        // while(!seat){
+        //     getSeat();
+        //     if(!seat) yield return new WaitForSeconds(1);
+        // }
 
         movement.setTarget(seat.transform.position);
 
@@ -42,17 +42,17 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
         movement.setFlipX(seatData.isFacingLeft);
     }
 
-    protected void getSeat(){    
-        GameObject[] seats = GameObject.FindGameObjectsWithTag("Seats");
-        foreach(GameObject data in seats){
-            seatData = data.GetComponent<FacilityData>();
-            if(seatData.isAvailable){
-                seat = data;
-                seatData.isAvailable = false;
-                break;
-            }
-        }
-    }
+    // protected void getSeat(){    
+    //     GameObject[] seats = GameObject.FindGameObjectsWithTag("Seats");
+    //     foreach(GameObject data in seats){
+    //         seatData = data.GetComponent<FacilityData>();
+    //         if(seatData.isAvailable){
+    //             seat = data;
+    //             seatData.isAvailable = false;
+    //             break;
+    //         }
+    //     }
+    // }
 
 
     protected IEnumerator enjoyMeal(){
