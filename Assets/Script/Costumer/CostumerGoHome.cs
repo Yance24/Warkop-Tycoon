@@ -28,6 +28,6 @@ public class CostumerGoHome : BaseNpcBehavior
     protected override void finish()
     {
         base.finish();
-        entranceDoor.GetComponent<BaseCostumerSpawner>().removeCostumer(gameObject);
+        Costumer.removeCostumer(gameObject);
     }
 }

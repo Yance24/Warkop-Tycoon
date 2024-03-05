@@ -21,7 +21,7 @@ public class DayCycle : MonoBehaviour
             yield return new WaitForSeconds(1);
             InGameTime.Seconds++;
             setPercentage();
-            Debug.Log(InGameTime.getTime());
+            // Debug.Log(InGameTime.getTime());
         }
         Debug.Log("EndCycle!!");
         InGameTime.closingTime = true;
@@ -48,7 +48,7 @@ public class DayCycle : MonoBehaviour
         while(!Costumer.noCostumer()){
             yield return new WaitForSeconds(1);
         }
-        Debug.Log("Closing!!");
+        // Debug.Log("Closing!!");
         yield break;
     }
 }

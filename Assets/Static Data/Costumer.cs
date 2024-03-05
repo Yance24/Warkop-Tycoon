@@ -11,8 +11,30 @@ public static class Costumer
 
     public static bool removeCostumer(GameObject costumer){
         foreach(CostumerGroup costumerGroup in spawnedCostumer){
-            if(costumerGroup.costumer.Remove(costumer)) return true;
+            if(costumerGroup.removeCostumer(costumer)) return true;
         }
         return false;
+    }
+
+    public static CostumerGroup findCostumerGroup(GameObject costumer){
+        foreach(CostumerGroup costumerGroup in spawnedCostumer){
+            if(costumerGroup.findCostumer(costumer)) return costumerGroup;
+        }
+        return null;
+    }
+
+    public static int findCostumerGroupIndex(GameObject costumer){
+        for(int i = 0; i < spawnedCostumer.Count; i++){
+            if(spawnedCostumer[i].findCostumer(costumer)) return i;
+        }
+        return -1;
+    }
+
+    public static int findCostumerIndex(GameObject costumer){
+        for(int i = 0; i < spawnedCostumer.Count; i++){
+            int index = spawnedCostumer[i].getCostumerIndex(costumer);
+            if(index != -1) return index;
+        }
+        return -1;
     }
 }

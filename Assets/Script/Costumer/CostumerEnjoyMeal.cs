@@ -11,13 +11,15 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
     protected override void setup()
     {
         base.setup();
-        seat = null;
-        seatData = null;
+        // seat = null;
+        // seatData = null;
     }
 
     public override void execute()
     {
         base.execute();
+        seatData = seat.GetComponent<FacilityData>();
+        Debug.Log("seat : "+seat);
         StartCoroutine(takeSeat());
     }
 
@@ -68,9 +70,10 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
     }
 
     public void finishSeat(){
-        seat = null;
-        seatData.isAvailable = true;
-        seatData = null;
+        // seat = null;
+        // seatData.isAvailable = true;
+        // seatData = null;
+        Costumer.findCostumerGroup(gameObject).seatsData.isAvailable = true;
     }
 
 }
