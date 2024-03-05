@@ -10,8 +10,13 @@ public static class Costumer
     }
 
     public static bool removeCostumer(GameObject costumer){
-        foreach(CostumerGroup costumerGroup in spawnedCostumer){
-            if(costumerGroup.removeCostumer(costumer)) return true;
+        for(int i = 0; i < spawnedCostumer.Count; i++){
+            if(spawnedCostumer[i].removeCostumer(costumer)){
+                if(spawnedCostumer[i].costumer.Count == 0) {
+                    spawnedCostumer.RemoveAt(i);
+                }
+                return true;
+            }
         }
         return false;
     }

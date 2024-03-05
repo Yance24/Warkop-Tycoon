@@ -760,7 +760,7 @@ MonoBehaviour:
   isFacingLeft: 1
   isAvailable: 1
   lineLength: 3
-  npcLines: []
+  groupSpread: 1
 --- !u!1 &1362252133
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,8 +875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05ad77258c121a4aaf474effbe4a9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsCycle: 30
-  minutesCycle: 0
+  secondsCycle: 0
+  minutesCycle: 5
   hoursCycle: 0
 --- !u!4 &1375061324
 Transform:
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f3ed7c74899be41aec77bacc40f7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groupSpread: 0
+  groupSpread: 1
   costumer: {fileID: 7767210302017172414, guid: 1958fd89c316fb34992de0404b10c1f7, type: 3}
 --- !u!4 &1993413482
 Transform:

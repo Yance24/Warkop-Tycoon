@@ -67,7 +67,7 @@ public class BaseCostumerSpawner : MonoBehaviour
             for(int i = 0; i < seatsData.chairs.Count; i++){
                 if(Random.Range(1,3) == 2 || i == 0){
                     GameObject costumer = Instantiate(this.costumer);
-                    costumer.transform.position = transform.position;
+                    costumer.transform.position = new Vector2(transform.position.x - groupSpread * i,transform.position.y);
                     costumer.GetComponent<CostumerEnjoyMeal>().seat = seatsData.chairs[i];
                     costumerGroup.costumer.Add(costumer.GetInstanceID());
                 }

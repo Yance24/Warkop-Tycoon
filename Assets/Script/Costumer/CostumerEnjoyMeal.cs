@@ -19,7 +19,7 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
     {
         base.execute();
         seatData = seat.GetComponent<FacilityData>();
-        Debug.Log("seat : "+seat);
+        // Debug.Log("seat : "+seat);
         StartCoroutine(takeSeat());
     }
 

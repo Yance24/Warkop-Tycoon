@@ -20,7 +20,10 @@ public class CostumerOrdering : BaseNpcBehavior
     {
         base.execute();
         counterReached = false;
-        counterData.npcLines.Add(transform.gameObject);
+        // counterData.npcLines.Add(transform.gameObject);
+        if(counterData.getCurrentLine(gameObject) == -1)
+            counterData.npcLines.Add(Costumer.findCostumerGroup(gameObject));
+
         StartCoroutine(waitInLine());
     }
 
@@ -35,14 +38,13 @@ public class CostumerOrdering : BaseNpcBehavior
     }    
 
     protected void checkCounter(){
-        if(counterData.getIndex(transform.gameObject) == 0) {
-            movement.setTarget(counter.transform.position);
-            counterReached = true;
-        }else 
-            if(counterData.isFacingLeft)
-                movement.setTarget(new Vector2(counter.transform.position.x - counterData.lineLength * counterData.getIndex(transform.gameObject),transform.position.y));
-            else
-                movement.setTarget(new Vector2(counter.transform.position.x + counterData.lineLength * counterData.getIndex(transform.gameObject),transform.position.y));
+        if(counterData.getCurrentLine(gameObject) == 0) counterReached = true;
+        
+        if(counterData.isFacingLeft)
+            movement.setTarget(new Vector2(counter.transform.position.x - (counterData.lineLength * counterData.getCurrentLine(gameObject) + counterData.groupSpread * counterData.getGroupIndex(gameObject)),transform.position.y));
+        else
+            movement.setTarget(new Vector2(counter.transform.position.x + (counterData.lineLength * counterData.getCurrentLine(gameObject) + counterData.groupSpread * counterData.getGroupIndex(gameObject)),transform.position.y));
+        
     }
 
     protected void setFlipSprite(){
@@ -61,7 +63,7 @@ public class CostumerOrdering : BaseNpcBehavior
 
     protected override void finish()
     {
-        counterData.npcLines.Remove(transform.gameObject);
+        counterData.removeLines(gameObject);
         base.finish();
     }
 }
