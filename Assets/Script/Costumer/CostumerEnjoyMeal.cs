@@ -5,27 +5,29 @@ using UnityEngine;
 
 public class CostumerEnjoyMeal : BaseNpcBehavior
 {
-    protected GameObject seat;
+    public GameObject seat;
     protected FacilityData seatData;
 
     protected override void setup()
     {
         base.setup();
-        seat = null;
-        seatData = null;
+        // seat = null;
+        // seatData = null;
     }
 
     public override void execute()
     {
         base.execute();
+        seatData = seat.GetComponent<FacilityData>();
+        // Debug.Log("seat : "+seat);
         StartCoroutine(takeSeat());
     }
 
     protected IEnumerator takeSeat(){
-        while(!seat){
-            getSeat();
-            if(!seat) yield return new WaitForSeconds(1);
-        }
+        // while(!seat){
+        //     getSeat();
+        //     if(!seat) yield return new WaitForSeconds(1);
+        // }
 
         movement.setTarget(seat.transform.position);
 
@@ -42,17 +44,17 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
         movement.setFlipX(seatData.isFacingLeft);
     }
 
-    protected void getSeat(){    
-        GameObject[] seats = GameObject.FindGameObjectsWithTag("Seats");
-        foreach(GameObject data in seats){
-            seatData = data.GetComponent<FacilityData>();
-            if(seatData.isAvailable){
-                seat = data;
-                seatData.isAvailable = false;
-                break;
-            }
-        }
-    }
+    // protected void getSeat(){    
+    //     GameObject[] seats = GameObject.FindGameObjectsWithTag("Seats");
+    //     foreach(GameObject data in seats){
+    //         seatData = data.GetComponent<FacilityData>();
+    //         if(seatData.isAvailable){
+    //             seat = data;
+    //             seatData.isAvailable = false;
+    //             break;
+    //         }
+    //     }
+    // }
 
 
     protected IEnumerator enjoyMeal(){
@@ -68,9 +70,10 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
     }
 
     public void finishSeat(){
-        seat = null;
-        seatData.isAvailable = true;
-        seatData = null;
+        // seat = null;
+        // seatData.isAvailable = true;
+        // seatData = null;
+        Costumer.findCostumerGroup(gameObject).seatsData.isAvailable = true;
     }
 
 }

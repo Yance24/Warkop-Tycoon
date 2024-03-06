@@ -27,7 +27,7 @@ public class CostumerGoHome : BaseNpcBehavior
 
     protected override void finish()
     {
-        base.finish();
-        Destroy(transform.gameObject);
+        if(Costumer.removeCostumer(gameObject)) Destroy(gameObject);
+        // base.finish();
     }
 }
