@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HorizontalCameraControl : MonoBehaviour
+public class ScrollHorizontalCameraControl : MonoBehaviour
 {
     public float cameraSpeed;
     public float cameraAccel;
@@ -11,28 +11,14 @@ public class HorizontalCameraControl : MonoBehaviour
     public float cameraVerticalInputOffset;
     public Transform leftBorder;
     public Transform rightBorder;
+    
+    private bool isActive = true;
 
-    class ScreenEdges{
-        public float top;
-        public float bottom;
-        public float right;
-        public float left;
-
-        public float worldLeft{
-            get{return Camera.main.ScreenToWorldPoint(new Vector2(0,0)).x;}
-        }
-
-        public float worldRight{
-            get{return Camera.main.ScreenToWorldPoint(new Vector2(Screen.width,0)).x;}
-        }
-
-        public void showScreenSize(){
-            Debug.Log("top = "+top);
-            Debug.Log("bottom = "+bottom);
-            Debug.Log("left = "+left);
-            Debug.Log("right = "+right);
-        }
+    public bool IsActive{
+        get{return isActive;}
+        set{isActive = value;}
     }
+
     private ScreenEdges screenEdges;
     private Vector2 mousePosition;
     private Vector2 moveDirection;
@@ -62,11 +48,13 @@ public class HorizontalCameraControl : MonoBehaviour
 
 
     void FixedUpdate(){
-        getScreenEdges();
-        checkInput();
-        processAcceleration();
-        checkBorder();
-        executeMovement();
+        if(isActive){
+            getScreenEdges();
+            checkInput();
+            processAcceleration();
+            checkBorder();
+            executeMovement();
+        }
     }
 
     private void checkInput(){

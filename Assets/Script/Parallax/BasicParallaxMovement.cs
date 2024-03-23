@@ -6,20 +6,26 @@ public class BasicParallaxMovement : MonoBehaviour
 {
     public GameObject mainCamera;
     public bool inverseMovement = false;
-    public float speedMultiplier;
+    public float offsetMultiplier;
 
-    private HorizontalCameraControl cameraController;
+    private Vector2 cameraStartPosition;
+    private Vector2 objectStartPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraController = mainCamera.GetComponent<HorizontalCameraControl>();
+        cameraStartPosition = mainCamera.transform.position;
+        objectStartPosition = transform.position;
     }
 
     void FixedUpdate(){
-        if(cameraController){
-            if(!inverseMovement) transform.Translate(cameraController.BufferDirection * cameraController.CurrentSpeed * speedMultiplier * Time.fixedDeltaTime);
-            else transform.Translate(cameraController.BufferDirection * (cameraController.CurrentSpeed * -1) * speedMultiplier * Time.fixedDeltaTime);
+        if(mainCamera){
+            Vector2 cameraOffset = new Vector2(mainCamera.transform.position.x - cameraStartPosition.x, mainCamera.transform.position.y - cameraStartPosition.y) * offsetMultiplier;
+            if(inverseMovement){
+                transform.position = new Vector2(objectStartPosition.x - cameraOffset.x, objectStartPosition.y);
+            }else{
+                transform.position = new Vector2(objectStartPosition.x + cameraOffset.x, objectStartPosition.y);
+            }
         }
     }
 }
