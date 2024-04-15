@@ -49,8 +49,10 @@ public class DragCameraControl : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if(isDragged) processDrag();
-        if(border) checkBorder();
+        if(isDragged) {
+            processDrag();
+            if(border) checkBorder();
+        }
     }
 
     private void processDrag(){
