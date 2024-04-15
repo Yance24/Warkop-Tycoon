@@ -22,9 +22,9 @@ public class BasicParallaxMovement : MonoBehaviour
         if(mainCamera){
             Vector2 cameraOffset = new Vector2(mainCamera.transform.position.x - cameraStartPosition.x, mainCamera.transform.position.y - cameraStartPosition.y) * offsetMultiplier;
             if(inverseMovement){
-                transform.position = new Vector2(objectStartPosition.x - cameraOffset.x, objectStartPosition.y);
+                transform.position = new Vector2(objectStartPosition.x - cameraOffset.x, objectStartPosition.y - cameraOffset.y);
             }else{
-                transform.position = new Vector2(objectStartPosition.x + cameraOffset.x, objectStartPosition.y);
+                transform.position = new Vector2(objectStartPosition.x + cameraOffset.x, objectStartPosition.y + cameraOffset.y);
             }
         }
     }

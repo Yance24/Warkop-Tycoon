@@ -13,15 +13,12 @@ public class DragCameraControl : MonoBehaviour
     private Vector2 startCameraPosition;
     private ScreenEdges screenEdges;
     private BorderObject border;
-    // public Transform leftBorder;
-    // public Transform rightBorder;
     
     void Start()
     {
         // scrollHorizontal = GetComponent<ScrollHorizontalCameraControl>();
         border = GetComponent<BorderObject>();
         screenEdges = new ScreenEdges();
-        // screenEdges.showEdgeCoordinates();
     }
 
     // Update is called once per frame
@@ -60,8 +57,6 @@ public class DragCameraControl : MonoBehaviour
             convertDragToWorldX(getMousePosition().x - startDragged.x),
             convertDragToWorldY(getMousePosition().y - startDragged.y))
             * sensitivity;
-        
-        // float position = startCameraPosition.x - offset;
         transform.position = new Vector3(startCameraPosition.x - offset.x, startCameraPosition.y - offset.y,-10);
     }
 
@@ -94,21 +89,6 @@ public class DragCameraControl : MonoBehaviour
         }
 
         transform.position = new Vector3(positionX,positionY,-10);
-
-        // if(screenEdges.Left < border.leftBorder.position.x && offset > 0){
-        //     position = border.leftBorder.position.x + (screenEdges.Width) / 2 - 0.1f;
-        //     transform.position = new Vector3(position, startCameraPosition.y,-10);
-        //     startDragged = getMousePosition();
-        //     startCameraPosition = transform.position;
-        //     return;
-        // } 
-        // else if(screenEdges.Right > border.rightBorder.position.x && offset < 0){
-        //     position = border.rightBorder.position.x - (screenEdges.Width) / 2 + 0.1f;
-        //     transform.position = new Vector3(position, startCameraPosition.y,-10);
-        //     startDragged = getMousePosition();
-        //     startCameraPosition = transform.position;
-        //     return;
-        // }
     }
 
     private float convertDragToWorldX(float offset){
