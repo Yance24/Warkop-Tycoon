@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SplsahScreenDollyEffect : MonoBehaviour
+public class SplashScreenDollyEffect : MonoBehaviour
 {
     public float dollySpeed = 0.01f;
     public float maxScale = 1.1f;
