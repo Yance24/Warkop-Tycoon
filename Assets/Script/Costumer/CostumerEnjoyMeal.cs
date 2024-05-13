@@ -73,7 +73,7 @@ public class CostumerEnjoyMeal : BaseNpcBehavior
         // seat = null;
         // seatData.isAvailable = true;
         // seatData = null;
-        Costumer.findCostumerGroup(gameObject).seatsData.isAvailable = true;
+        // Costumer.findCostumerGroup(gameObject).seatsData.isAvailable = true;
     }
 
 }

@@ -45,10 +45,10 @@ public class DayCycle : MonoBehaviour
 
     
     IEnumerator handleEndCycle(){
-        while(!Costumer.noCostumer()){
-            yield return new WaitForSeconds(1);
-        }
-        // Debug.Log("Closing!!");
+        // while(!Costumer.noCostumer()){
+        //     yield return new WaitForSeconds(1);
+        // }
+        // // Debug.Log("Closing!!");
         yield break;
     }
 }

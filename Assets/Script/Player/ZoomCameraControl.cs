@@ -23,6 +23,13 @@ public class ZoomCameraControl : MonoBehaviour
     void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
+        mousePosition = Input.mousePosition;
+        if(
+            mousePosition.x < Screen.width &&
+            mousePosition.x > 0 &&
+            mousePosition.y < Screen.height &&
+            mousePosition.y > 0
+        )
         if(scroll > 0f){
             currentZoom -= zoomSensitivity;
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

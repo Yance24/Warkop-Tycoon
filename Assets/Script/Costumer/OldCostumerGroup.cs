@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CostumerGroup
+public class OldCostumerGroup
 {
     public List<int> costumer = new List<int>();
     public SeatsData seatsData;
