@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance{get;private set;}
+    public static UIManager Instance{get;private set;}
 
     void Awake(){
-        if(!instance)instance = this;
+        if(!Instance)Instance = this;
         else Destroy(gameObject);
     }
 

@@ -4,6 +4,9 @@ using UnityEngine;
 public class MenuParameter : BaseMenuParameter
 {
     [SerializeField]
+    private Sprite icon;
+
+    [SerializeField]
     private int price;
 
     [SerializeField]
@@ -26,5 +29,9 @@ public class MenuParameter : BaseMenuParameter
 
     public MenuType Type{
         get{return menuType;}
+    }
+
+    public Sprite Icon{
+        get{return icon;}
     }
 }
