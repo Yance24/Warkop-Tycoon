@@ -41,7 +41,7 @@ public class BaseAiProcessManager : MonoBehaviour
 
     void Awake(){
         foreach(Transform child in transform){
-            actionList.Add(child.GetComponent<BaseNpcAction>());
+            if(child.gameObject.activeSelf) actionList.Add(child.GetComponent<BaseNpcAction>());
         }
     }
 }
