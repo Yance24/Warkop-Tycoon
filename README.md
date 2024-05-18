@@ -3,11 +3,8 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
+- [Prerequisites](#Prerequisites)
 - [Installation](#installation)
-- [How to Play](#how-to-play)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Introduction
@@ -21,6 +18,8 @@ Make strategic decisions to expand your business, satisfy your customers, and be
 - Create unique coffee recipes
 - Handle customer orders and improve satisfaction
 - Upgrade equipment and shop interiors
+
+## Installation
 
 ### Prerequisites
 - [Unity](https://unity.com/) (version 2022.3.10f1 or higher with URP)
