@@ -29,3 +29,9 @@ Make strategic decisions to expand your business, satisfy your customers, and be
 
 ```bash
 git clone https://github.com/Yance24/Warkop-Tycoon.git
+```
+
+## Contact
+For any inquiries or feedback, please contact us at :
+```bash
+holcigamesid@gmail.com
