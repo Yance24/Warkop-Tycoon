@@ -8,8 +8,8 @@ public class CostumerGroupManager : MonoBehaviour
 
     void Start(){
         AiHandler.setup(costumerObjects);
-        Debug.Log("Ai Handler Setup Complete");
-        Debug.Log("Ai Handler Executing...");
+        // Debug.Log("Ai Handler Setup Complete");
+        // Debug.Log("Ai Handler Executing...");
         AiHandler.execute();
     }
 }

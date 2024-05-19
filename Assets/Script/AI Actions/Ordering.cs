@@ -61,6 +61,7 @@ public class Ordering : BaseNpcAction
 
     private MenuParameter getMenu(List<MenuScore> menuScores, int maxScore){
         int randomNum = UnityEngine.Random.Range(1,maxScore + 1);
+        // Debug.Log("random number : "+randomNum);
         foreach(MenuScore menuScore in menuScores){
             randomNum -= menuScore.score;
             if(randomNum <= 0) return menuScore.menu;
@@ -95,7 +96,7 @@ public class Ordering : BaseNpcAction
         tempScore = Mathf.Clamp(tempScore,0,100);
         int result = (int) ((float)(sweetScore * bitterScore * spendScore * tempScore) / (float)(Mathf.Pow(100,3)));
         result = Mathf.Clamp(result,1,100);
-        Debug.Log(menu.Name+" have score of: "+result);
+        // Debug.Log(menu.Name+" have score of: "+result);
         return result;
     }
 

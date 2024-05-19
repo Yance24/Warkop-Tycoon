@@ -7,7 +7,9 @@ public class NotaMenuWriter : MonoBehaviour
 {
     public GameObject menuItemPrefab;
     [SerializeField]
-    private float margin;
+    private float startMargin;
+    [SerializeField]
+    private float objectMargin;
     private List<MenuParameter> menuList;
     private List<GameObject> menuItemList = new List<GameObject>();
 
@@ -20,7 +22,7 @@ public class NotaMenuWriter : MonoBehaviour
             menuItemHandler.setSprite(menu.Icon);
             menuItemHandler.setText(menu.Name);
             menuItemTransform.SetParent(transform,false);
-            menuItemTransform.anchoredPosition = new Vector3(0,-44 - (menuItemTransform.sizeDelta.y + margin) * menuItemList.Count,0);
+            menuItemTransform.anchoredPosition = new Vector3(0,startMargin - (menuItemTransform.sizeDelta.y + objectMargin) * menuItemList.Count,0);
             // Debug.Log("height : "+menuItemTransform.sizeDelta.y);
             // Debug.Log("menuItemList : "+menuItemList.Count);
             // Debug.Log("calc : "+(-44 - (menuItemTransform.sizeDelta.y + margin) * menuItemList.Count));

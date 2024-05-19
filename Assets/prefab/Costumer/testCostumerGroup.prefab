@@ -127,11 +127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sweet: 6
   bitter: 4
-  temperature: 1
-  sweetTolerance: 0.04
-  bitterTolerance: 0.24
+  temperature: 2
+  sweetTolerance: 0
+  bitterTolerance: 0
   spendExcpectation: 10000
-  spendTolerance: 0.00018
+  spendTolerance: 0
   maxSpend: 20000
 --- !u!1 &1746867549076925539
 GameObject:
@@ -322,11 +322,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sweet: 2
   bitter: 8
-  temperature: 0
-  sweetTolerance: 0.13
-  bitterTolerance: 0.39
+  temperature: 2
+  sweetTolerance: 0
+  bitterTolerance: 0
   spendExcpectation: 10000
-  spendTolerance: 0.11
+  spendTolerance: 0
   maxSpend: 20000
 --- !u!1 &8097225758363167138
 GameObject:

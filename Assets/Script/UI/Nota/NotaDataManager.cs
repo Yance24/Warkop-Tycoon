@@ -10,6 +10,9 @@ public class NotaDataManager : MonoBehaviour
     [SerializeField]
     private GameObject maximizedNota;
 
+    [SerializeField]
+    private int maximumNota;
+
     private NotaDataBuffer currentPickedMenu;
 
     public NotaDataBuffer BufferedNota{
@@ -22,10 +25,17 @@ public class NotaDataManager : MonoBehaviour
 
     private List<NotaDataBuffer> notaBuffers = new List<NotaDataBuffer>();
 
+    public List<NotaDataBuffer> NotaBuffers{
+        get{return notaBuffers;}
+    }
 
     void Awake(){
         if(!Instance) Instance = this;
         else Destroy(gameObject);
+    }
+
+    void OnEnable(){
+        displayMinimizedMenu();
     }
 
     public void writeMenu(List<MenuParameter> menus){
@@ -33,6 +43,15 @@ public class NotaDataManager : MonoBehaviour
         notaBuffers.Add(buffer);
         currentPickedMenu = buffer;
         displayMaximizedMenu();
+    }
+
+    public void showMenu(int index){
+        currentPickedMenu = notaBuffers[index];
+        displayMaximizedMenu();
+    }
+
+    public bool isMaxed(){
+        return NotaBuffers.Count >= maximumNota;
     }
 
     public void displayMinimizedMenu(){

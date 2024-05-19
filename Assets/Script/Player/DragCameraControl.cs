@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DragCameraControl : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class DragCameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!EventSystem.current.IsPointerOverGameObject())
         if(Input.GetMouseButtonDown(1)){
             // if(scrollHorizontal){
             //     scrollHorizontal.IsActive = false;

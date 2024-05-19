@@ -80,6 +80,8 @@ public class BaseCostumerSpawner : MonoBehaviour
         // if(costumerGroup.costumer.Count > 0) Costumer.spawnedCostumer.Add(costumerGroup);
         GameObject costumer = Instantiate(this.costumer);
         costumer.transform.position = transform.position;
+        costumer = Instantiate(this.costumer);
+        costumer.transform.position = transform.position;
     }
 
     public void removeCostumer(GameObject costumer){

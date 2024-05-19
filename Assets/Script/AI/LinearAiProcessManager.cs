@@ -10,12 +10,12 @@ public class LinearAiProcessManager : BaseAiProcessManager
     public override void pickAction()
     {
         if(actionList.Count == 0){
-            Debug.Log("there is no action inside the Ai handler");
+            // Debug.Log("there is no action inside the Ai handler");
             return;
         }
         if(index < actionList.Count){
             currentAction = actionList[index];
-            Debug.Log("currentAction : "+currentAction);
+            // Debug.Log("currentAction : "+currentAction);
             index++;
         }else currentAction = null;
     }

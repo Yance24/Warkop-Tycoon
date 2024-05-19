@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ZoomCameraControl : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class ZoomCameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(EventSystem.current.IsPointerOverGameObject()) return;
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         mousePosition = Input.mousePosition;
         if(
