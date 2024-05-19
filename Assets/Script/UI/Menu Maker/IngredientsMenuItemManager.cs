@@ -7,6 +7,9 @@ public class IngredientsMenuItemManager : MonoBehaviour
     // [SerializeField]
     // private List<IngredientsMenuItem> ingredientItemUI;
 
+    [SerializeField]
+    private RectTransform targetDrag;
+
     [Serializable]
     class IngredientsReferecence{
         public GameObject uiObject;
@@ -15,13 +18,17 @@ public class IngredientsMenuItemManager : MonoBehaviour
 
     [SerializeField]
     private List<IngredientsReferecence> ingredientsReferecences;
-
+    
+    //can be optimized later on
     void OnEnable(){
         foreach(IngredientsReferecence ingredients in ingredientsReferecences){
-            StoredIngredient storedIngredient = IngredientsStorage.Instance.getIngredients(ingredients.name);
-            if(storedIngredient.amount > 0){
+            StoredIngredient storedIngredientRef = IngredientsStorage.Instance.getIngredients(ingredients.name);
+            if(storedIngredientRef.amount > 0){
                 ingredients.uiObject.SetActive(true);
-                ingredients.uiObject.GetComponent<IngredientNumberUI>().setAmount = storedIngredient.amount;
+                IngredientItemDataManager dataManager = ingredients.uiObject.GetComponent<IngredientItemDataManager>();
+                dataManager.Ingredient = storedIngredientRef;
+                dataManager.TargetDrag = targetDrag;
+                
             }else{
                 ingredients.uiObject.SetActive(false);
             }

@@ -5,18 +5,28 @@ using UnityEngine.EventSystems;
 
 public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    
     private RectTransform parentTransform;
-    // private CanvasGroup canvasGroup;
     private GameObject itemClone;
     private RectTransform rectTransform;
+    private IngredientItemDataManager dataManager;
+    private RectTransform targetDrag;
+    private Bounds targetBounds;
+    private Bounds currentBounds;
+    
+    
 
     void Start(){
         rectTransform = transform as RectTransform;
         parentTransform = transform.parent as RectTransform;
-        // canvasGroup = GetComponent<CanvasGroup>();
-        // if(canvasGroup == null){
-        //     canvasGroup = gameObject.AddComponent<CanvasGroup>();
-        // }
+        dataManager = GetComponent<IngredientItemDataManager>();
+        targetDrag = dataManager.TargetDrag;
+
+        if(targetDrag == null) return;
+
+        RectTransform targetParent = targetDrag.parent as RectTransform;
+        targetBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(targetParent,targetDrag);
+        
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -25,8 +35,6 @@ public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHand
         itemClone.transform.SetParent(parentTransform, false);
         RectTransform cloneTransform = itemClone.transform as RectTransform;
         cloneTransform.anchoredPosition = rectTransform.anchoredPosition;
-
-        // canvasGroup.blocksRaycasts = true;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -34,13 +42,16 @@ public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHand
         Vector2 localPoint;
         if(RectTransformUtility.ScreenPointToLocalPointInRectangle(parentTransform, eventData.position, eventData.pressEventCamera, out localPoint)){
             rectTransform.anchoredPosition = localPoint;
+            currentBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(parentTransform,rectTransform);
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // canvasGroup.blocksRaycasts = false;
         rectTransform.anchoredPosition = (itemClone.transform as RectTransform).anchoredPosition;
+        if(currentBounds.Intersects(targetBounds)){
+            
+        }
         Destroy(itemClone);
     }
 }
