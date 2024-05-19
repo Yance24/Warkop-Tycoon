@@ -20,9 +20,10 @@ public class IngredientsMenuItemManager : MonoBehaviour
         foreach(IngredientsReferecence ingredients in ingredientsReferecences){
             StoredIngredient storedIngredient = IngredientsStorage.Instance.getIngredients(ingredients.name);
             if(storedIngredient.amount > 0){
-                
+                ingredients.uiObject.SetActive(true);
+                ingredients.uiObject.GetComponent<IngredientNumberUI>().setAmount = storedIngredient.amount;
             }else{
-                
+                ingredients.uiObject.SetActive(false);
             }
         }
     }
