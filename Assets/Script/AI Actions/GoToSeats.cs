@@ -30,6 +30,12 @@ public class GoToSeats : BaseNpcAction
         return true;
     }
 
+    void setupSeatAnimation(){
+        foreach(GameObject gameObject in objectsRef){
+            gameObject.GetComponent<Animator>().SetBool("sitting",true);
+        }
+    }
+
     IEnumerator ActionProcess(){
         yield return null;
         //goes to seat
@@ -39,7 +45,8 @@ public class GoToSeats : BaseNpcAction
         while(!hasReachedSeats())
             yield return new WaitForFixedUpdate();
         
-        Debug.Log("Has Reached");
+        setupSeatAnimation();
+
         finish();
         yield break;
     }

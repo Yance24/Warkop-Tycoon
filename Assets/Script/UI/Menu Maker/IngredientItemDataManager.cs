@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IngredientItemDataManager : MonoBehaviour
@@ -27,5 +28,9 @@ public class IngredientItemDataManager : MonoBehaviour
         get{
             return targetDrag;
         }
+    }
+
+    public void refreshText(){
+        textNumberUI.text = ""+storedIngredientRef.amount;
     }
 }
