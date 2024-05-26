@@ -10,6 +10,15 @@ public class CupDataManager : MonoBehaviour
         storedIngredientRef.Add(gameObject);
     }
 
-    
+    public void brewButton(){
+        List<Ingredient> ingredientsToCraft = new List<Ingredient>();
+        foreach(GameObject gameObject in storedIngredientRef){
+            ingredientsToCraft.Add(gameObject.GetComponent<IngredientItemDataManager>().Ingredient.ingredient);
+        }
+        
+    }
 
+    public void resetButton(){
+
+    }
 }

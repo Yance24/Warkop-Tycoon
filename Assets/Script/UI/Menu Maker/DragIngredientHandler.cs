@@ -11,6 +11,7 @@ public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHand
     private RectTransform rectTransform;
     private IngredientItemDataManager dataManager;
     private RectTransform targetDrag;
+    private CupDataManager cupDataManager;
     private Bounds targetBounds;
     private Bounds currentBounds;
     
@@ -26,6 +27,7 @@ public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHand
 
         RectTransform targetParent = targetDrag.parent as RectTransform;
         targetBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(targetParent,targetDrag);
+        cupDataManager = targetDrag.GetComponent<CupDataManager>();
         
     }
 
@@ -50,7 +52,7 @@ public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHand
     {
         rectTransform.anchoredPosition = (itemClone.transform as RectTransform).anchoredPosition;
         if(currentBounds.Intersects(targetBounds)){
-            
+            cupDataManager.addIngredients(gameObject);
         }
         Destroy(itemClone);
     }
