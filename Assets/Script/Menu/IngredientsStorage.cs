@@ -40,6 +40,6 @@ public class IngredientsStorage : MonoBehaviour
     }
 
     public StoredIngredient getIngredients(string name){
-        return storedIngredients.Find(obj => obj.ingredient.name == name);
+        return storedIngredients.Find(obj => obj.ingredient.ingredientName == name);
     }
 }

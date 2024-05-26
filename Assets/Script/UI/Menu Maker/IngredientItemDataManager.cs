@@ -12,6 +12,7 @@ public class IngredientItemDataManager : MonoBehaviour
     private RectTransform targetDrag;
 
     public StoredIngredient Ingredient{
+        
         set{
             storedIngredientRef = value;
             textNumberUI.text = ""+storedIngredientRef.amount;
