@@ -144,7 +144,7 @@ Animator:
   m_GameObject: {fileID: 274342476416128617}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6948b833882f9349a1fb2ff98108360, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4e404ae80c1152d4ba8ace2e23133af5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 8862773804755215180}
   - component: {fileID: 9048694257296676036}
   - component: {fileID: 718270256543758793}
+  - component: {fileID: 7768723517127479501}
   m_Layer: 0
   m_Name: TestCostumer 2
   m_TagString: Costumer
@@ -350,6 +351,27 @@ MonoBehaviour:
   spendExcpectation: 10000
   spendTolerance: 0
   maxSpend: 20000
+--- !u!95 &7768723517127479501
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109627127893477845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e3733aba9345364899bf9c092ef691c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8097225758363167138
 GameObject:
   m_ObjectHideFlags: 0
