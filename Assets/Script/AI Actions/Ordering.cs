@@ -37,7 +37,7 @@ public class Ordering : BaseNpcAction
         foreach(GameObject costumer in objectsRef){
             costumerParameter.Add(costumer.GetComponent<CostumerPreferenceParameter>());
         }
-        menuParameters = MenuAvailable.Instance.menuItem;
+        menuParameters = MenuAvailable.Instance.menuParameters;
         return true;
     }
 
@@ -101,6 +101,7 @@ public class Ordering : BaseNpcAction
     }
 
     private void setupNotaUI(){
+        // Debug.Log(pickedMenu);
         NotaDataManager.Instance.writeMenu(pickedMenu);
     }
 

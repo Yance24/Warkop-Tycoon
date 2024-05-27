@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class IngredientsToCraft : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField]
+    private List<Ingredient> ingredients;
+
+    public List<string> Ingredients{
+        get{
+            List<string> ingredientsName = new List<string>();
+            foreach(Ingredient ingredient in ingredients){
+                ingredientsName.Add(ingredient.name);
+            }
+            return ingredientsName;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+
 }

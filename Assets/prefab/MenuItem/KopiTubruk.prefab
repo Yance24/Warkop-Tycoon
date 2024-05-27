@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7915619019826356256}
   - component: {fileID: 7261823193375181301}
+  - component: {fileID: 5835659009556726905}
   m_Layer: 0
   m_Name: KopiTubruk
   m_TagString: Untagged
@@ -47,6 +48,22 @@ MonoBehaviour:
   sweet: 3
   bitter: 10
   temperature: 0
+  icon: {fileID: 0}
   price: 8000
   menuName: Kopi Tubruk
   menuType: 0
+--- !u!114 &5835659009556726905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7433678133464317882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efad22e2cfc2ae48b2389401fb24336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredients:
+  - {fileID: 1807611604173487712, guid: 187f9d44c7e2ab146bb30270a15cb2e4, type: 3}
+  - {fileID: 3476969681845259266, guid: f801e85bf4e1ee64abba087d7f9044eb, type: 3}
