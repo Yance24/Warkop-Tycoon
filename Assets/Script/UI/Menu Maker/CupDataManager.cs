@@ -23,11 +23,7 @@ public class CupDataManager : MonoBehaviour
         GameObject craftedMenu = tryCraft(ingredientsToCraft);
         if(craftedMenu != null){
             Debug.Log(craftedMenu.name+" Have been crafted!!");
-            foreach(StoredIngredient storedIngredient in addedIngredient){
-                storedIngredient.amount--;
-            }
-            resetButton();
-            IngredientsMenuItemManager.Instance.refreshIngredientsUi();
+            addedIngredient.Clear();
         }else{
             Debug.Log("There is no menu to be crafted");
         }
@@ -67,6 +63,10 @@ public class CupDataManager : MonoBehaviour
     }
 
     public void resetButton(){
+        foreach(StoredIngredient storedIngredient in addedIngredient){
+                storedIngredient.amount++;
+            }
         addedIngredient.Clear();
+        IngredientsMenuItemManager.Instance.refreshIngredientsUi();
     }
 }

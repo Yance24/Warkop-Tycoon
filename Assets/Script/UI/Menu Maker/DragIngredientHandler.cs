@@ -52,7 +52,9 @@ public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHand
     {
         rectTransform.anchoredPosition = (itemClone.transform as RectTransform).anchoredPosition;
         if(currentBounds.Intersects(targetBounds)){
+            dataManager.Ingredient.amount--;
             cupDataManager.addIngredients(dataManager.Ingredient);
+            IngredientsMenuItemManager.Instance.refreshIngredientsUi();
         }
         Destroy(itemClone);
     }

@@ -109,27 +109,27 @@ public class Ordering : BaseNpcAction
         yield return null;
 
         //calling the player
-        Debug.Log("Setup Hitbox");
+        // Debug.Log("Setup Hitbox");
         if(!setupHitBoxHandler()){
             failed();
             yield break;
         }
         data.IsOrdering = true;
-        Debug.Log("Waiting input..");
+        // Debug.Log("Waiting input..");
         //wait for the player to respond
         while(data.IsOrdering){
             yield return new WaitForFixedUpdate();
         }
-        Debug.Log("Setup Pick Menu");
+        // Debug.Log("Setup Pick Menu");
         //Deciding which menu to pick
         if(!setupPickMenu()){
             failed();
             yield break;
         }
-        Debug.Log("getting drink");
+        // Debug.Log("getting drink");
         getDrink();
         
-        Debug.Log("setupUI");
+        // Debug.Log("setupUI");
         setupNotaUI();
         
         finish();
