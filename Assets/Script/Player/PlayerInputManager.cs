@@ -5,19 +5,25 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
+    public static PlayerInputManager Instance{get; private set;}
     [Serializable]
     public class ActionHandler{
-        public GameObject action;
+        public BaseAiProcessManager actionString;
         public string actionType;
     }
     [SerializeField]
     private List<ActionHandler> actionHandlers = new List<ActionHandler>();
     private List<InputBuffer> inputBufferList = new List<InputBuffer>();
-    private PlayerNpcAction currentAction;
+    private BaseAiProcessManager currentProcess;
     private Transform currentData;
     private Coroutine currentProcessing;
     public void addInputBuffer(InputBuffer inputBuffer){
         inputBufferList.Add(inputBuffer);
+    }
+
+    void Awake(){
+        if(!Instance) Instance = this;
+        else Destroy(gameObject);
     }
 
     void Start(){
@@ -35,7 +41,7 @@ public class PlayerInputManager : MonoBehaviour
     private void pullInputBuffer(){
         InputBuffer currentBuffer = inputBufferList[0];
         int index = actionHandlers.FindIndex(item => item.actionType == currentBuffer.inputType);
-        currentAction = actionHandlers[index].action.GetComponent<PlayerNpcAction>();
+        currentProcess = actionHandlers[index].actionString;
         currentData = currentBuffer.data;
         inputBufferList.Remove(currentBuffer);
     }
@@ -43,12 +49,20 @@ public class PlayerInputManager : MonoBehaviour
     IEnumerator bufferProcessing(){
         yield return null;
         while(true){
-            if(inputBufferList.Count > 0 && !currentAction){
+            if(inputBufferList.Count > 0 && !currentProcess){
                 pullInputBuffer();
-                currentAction.setup(gameObject,currentData);
-                currentAction.execute();
+                currentProcess.setup(gameObject);
+                currentProcess.execute();
+                // Debug.Log("Current Buffer: "+currentProcess.name);
+                // Debug.Log("inputBuffer List: ");
+                foreach(InputBuffer inputBuffer in inputBufferList){
+                    Debug.Log(inputBuffer.inputType);
+                }
             }
-            if(currentAction && currentAction.IsFinished) currentAction = null;
+            if(currentProcess && currentProcess.IsFinished) {
+                // Debug.Log(currentProcess.name +" Buffer is finished");
+                currentProcess = null;
+            }
             yield return new WaitForFixedUpdate();
         }
     }

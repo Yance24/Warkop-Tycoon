@@ -7,6 +7,7 @@ public class MenuMakerManager : MonoBehaviour
 {
     public GameObject makerUI;
     public GameObject serverUI;
+    public GameObject rightGroupButton;
 
     public static MenuMakerManager Instance{get; private set;}
 
@@ -41,5 +42,17 @@ public class MenuMakerManager : MonoBehaviour
     private void noDisplay(){
         makerUI.SetActive(false);
         serverUI.SetActive(false);
+        NotaDataManager.Instance.SelectedNota = false;
+        RightGroupButton = false;
+    }
+
+    public bool isMenuMakerActive(){
+        return makerUI.activeSelf || serverUI.activeSelf;
+    }
+
+    public bool RightGroupButton{
+        set{
+            rightGroupButton.SetActive(value);
+        }
     }
 }

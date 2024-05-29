@@ -102,7 +102,7 @@ public class Ordering : BaseNpcAction
 
     private void setupNotaUI(){
         // Debug.Log(pickedMenu);
-        NotaDataManager.Instance.writeMenu(pickedMenu);
+        NotaDataManager.Instance.writeMenu(pickedMenu,data);
     }
 
     IEnumerator ActionProcess(){

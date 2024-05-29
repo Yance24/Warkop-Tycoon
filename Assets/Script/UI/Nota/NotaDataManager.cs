@@ -9,6 +9,8 @@ public class NotaDataManager : MonoBehaviour
     private GameObject minimizedNota;
     [SerializeField]
     private GameObject maximizedNota;
+    [SerializeField]
+    private GameObject selectedNota;
 
     [SerializeField]
     private int maximumNota;
@@ -21,6 +23,7 @@ public class NotaDataManager : MonoBehaviour
 
     public class NotaDataBuffer{
         public List<MenuParameter> menu;
+        public SeatsData seatsData;
     }
 
     private List<NotaDataBuffer> notaBuffers = new List<NotaDataBuffer>();
@@ -38,8 +41,8 @@ public class NotaDataManager : MonoBehaviour
         displayMinimizedMenu();
     }
 
-    public void writeMenu(List<MenuParameter> menus){
-        NotaDataBuffer buffer = new NotaDataBuffer{menu = menus};
+    public void writeMenu(List<MenuParameter> menus, SeatsData seats){
+        NotaDataBuffer buffer = new NotaDataBuffer{menu = menus, seatsData = seats};
         notaBuffers.Add(buffer);
         currentPickedMenu = buffer;
         displayMaximizedMenu();
@@ -48,6 +51,14 @@ public class NotaDataManager : MonoBehaviour
     public void showMenu(int index){
         currentPickedMenu = notaBuffers[index];
         displayMaximizedMenu();
+    }
+
+    public void selectNota(int index){
+        currentPickedMenu = notaBuffers[index];
+        if(!selectedNota.activeSelf) {
+            SelectedNota = true;
+            MenuMakerManager.Instance.RightGroupButton = true;
+        }
     }
 
     public bool isMaxed(){
@@ -62,5 +73,9 @@ public class NotaDataManager : MonoBehaviour
     public void displayMaximizedMenu(){
         minimizedNota.SetActive(false);
         maximizedNota.SetActive(true);
+    }
+
+    public bool SelectedNota{
+        set{selectedNota.SetActive(value);}
     }
 }

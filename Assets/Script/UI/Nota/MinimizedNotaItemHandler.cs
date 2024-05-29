@@ -7,6 +7,7 @@ public class MinimizedNotaItemHandler : MonoBehaviour
     public int index;
 
     public void OnClick(){
-        NotaDataManager.Instance.showMenu(index);
+        if(MenuMakerManager.Instance.isMenuMakerActive()) NotaDataManager.Instance.selectNota(index);
+        else NotaDataManager.Instance.showMenu(index);
     }
 }

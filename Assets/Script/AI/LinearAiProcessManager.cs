@@ -4,18 +4,18 @@ using UnityEngine;
 public class LinearAiProcessManager : BaseAiProcessManager
 {
     private BaseNpcAction currentAction;
-    private int index = 0;
     IEnumerator runningProcess;
 
     public override void pickAction()
     {
+        if(currentAction) currentAction.resetValue();
         if(actionList.Count == 0){
             // Debug.Log("there is no action inside the Ai handler");
             return;
         }
         if(index < actionList.Count){
             currentAction = actionList[index];
-            // Debug.Log("currentAction : "+currentAction);
+            // Debug.Log("currentAction : "+currentAction.IsFinished);
             index++;
         }else currentAction = null;
     }
@@ -42,10 +42,12 @@ public class LinearAiProcessManager : BaseAiProcessManager
                 }else pickAction();
 
             }else if(!currentAction.IsRunning){
+                // Debug.Log("Running : "+currentAction);
                 currentAction.setup(objectsRef);
                 currentAction.execute();
             }
             yield return new WaitForFixedUpdate();
         }while(currentAction != null);
+        isFinished = true;
     }
 }

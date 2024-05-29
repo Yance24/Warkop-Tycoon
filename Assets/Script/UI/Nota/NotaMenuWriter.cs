@@ -10,7 +10,7 @@ public class NotaMenuWriter : MonoBehaviour
     private float startMargin;
     [SerializeField]
     private float objectMargin;
-    private List<MenuParameter> menuList;
+    private List<MenuParameter> menuList = new List<MenuParameter>();
     private List<GameObject> menuItemList = new List<GameObject>();
 
     void OnEnable(){
@@ -27,6 +27,14 @@ public class NotaMenuWriter : MonoBehaviour
             // Debug.Log("menuItemList : "+menuItemList.Count);
             // Debug.Log("calc : "+(-44 - (menuItemTransform.sizeDelta.y + margin) * menuItemList.Count));
             menuItemList.Add(menuItem);
+        }
+    }
+
+    void FixedUpdate(){
+        if(menuList != NotaDataManager.Instance.BufferedNota.menu){
+            menuList = NotaDataManager.Instance.BufferedNota.menu;
+            OnDisable();
+            OnEnable();
         }
     }
 

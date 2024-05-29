@@ -34,6 +34,12 @@ public class BaseNpcAction : MonoBehaviour
         actionsDataList = transform.parent.GetComponent<ActionsDataList>();
     }
 
+    public void resetValue(){
+        isRunning = false;
+        isFinished = false;
+        isFailed = false;
+    }
+
     public virtual void execute(){
         isFinished = false;
         isRunning = true;

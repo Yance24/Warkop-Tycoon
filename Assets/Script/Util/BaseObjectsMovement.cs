@@ -45,7 +45,10 @@ public class BaseObjectsMovement : MonoBehaviour
 
     public void setTarget(Vector2 target){
         isEndDirection = false;
-        if(this.target == target) return;
+        if(this.target == target) {
+            isReached = true;
+            return;
+        }
         this.target = target;
         isReached = false;
         getDirection();
@@ -54,10 +57,17 @@ public class BaseObjectsMovement : MonoBehaviour
     }
 
     public void setTarget(Transform obj){
-        isEndDirection = true;
-        endDirection = obj.GetComponent<FacilityData>().isFacingLeft;
+        FacilityData facilityData = obj.GetComponent<FacilityData>();
+        if(facilityData) {
+            isEndDirection = true;
+            endDirection = facilityData.isFacingLeft;
+        }
+        else isEndDirection = false;
         Vector2 target = obj.position;
-        if(this.target == target) return;
+        if(this.target == target) {
+            isReached = true;
+            return;
+        }
         this.target = target;
         isReached = false;
         getDirection();

@@ -22,6 +22,7 @@ public class SeatsData : FacilityData
     public void setOccupied(List<GameObject> occupiedBy){
         this.occupiedBy = occupiedBy;
     }
+    
     public List<GameObject> getOccupiedBy(){
         return occupiedBy;
     }
