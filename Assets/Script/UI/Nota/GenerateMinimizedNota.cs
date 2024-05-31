@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GenerateMinimizedNota : MonoBehaviour
@@ -19,6 +20,10 @@ public class GenerateMinimizedNota : MonoBehaviour
             menuItemTransform.anchoredPosition = new Vector2(startMargin + (menuItemTransform.sizeDelta.x + objectMargin) * i,0);
             notaList.Add(menuItem);
         }
+    }
+
+    public void refreshUI(){
+        OnEnable();
     }
 
     void OnDisable(){

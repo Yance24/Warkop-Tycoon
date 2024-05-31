@@ -15,6 +15,6 @@ public class DragTrayCupToTrash : DragUIHandler
     {
         base.execute();
         MenuMakerManager.Instance.CraftedMenu.RemoveAt(handler.index);
-        TrayManager.Instance.refreshUI();
+        TrayUIManager.Instance.refreshUI();
     }
 }

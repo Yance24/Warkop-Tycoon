@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class NotaDataBuffer{
+    public List<MenuParameter> menu;
+    public SeatsData seatsData;
+}
+
 public class NotaDataManager : MonoBehaviour
 {
     public static NotaDataManager Instance { get; private set;}
@@ -19,11 +24,6 @@ public class NotaDataManager : MonoBehaviour
 
     public NotaDataBuffer BufferedNota{
         get{return currentPickedMenu;}
-    }
-
-    public class NotaDataBuffer{
-        public List<MenuParameter> menu;
-        public SeatsData seatsData;
     }
 
     private List<NotaDataBuffer> notaBuffers = new List<NotaDataBuffer>();
@@ -77,5 +77,12 @@ public class NotaDataManager : MonoBehaviour
 
     public bool SelectedNota{
         set{selectedNota.SetActive(value);}
+    }
+
+    public void refreshUI(){
+        if(minimizedNota.activeSelf){
+            minimizedNota.SetActive(false);
+            minimizedNota.SetActive(true);
+        }
     }
 }

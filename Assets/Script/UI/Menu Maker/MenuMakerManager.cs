@@ -43,6 +43,17 @@ public class MenuMakerManager : MonoBehaviour
         displayServerUI();
     }
 
+    public void serveButton(){
+        if(TrayManager.Instance.addTrayedMenu(new TrayedMenu(craftedMenu, NotaDataManager.Instance.BufferedNota))){
+            craftedMenu.Clear();
+            noDisplay();
+            NotaDataManager.Instance.NotaBuffers.Remove(NotaDataManager.Instance.BufferedNota);
+            NotaDataManager.Instance.refreshUI();
+        }else{
+            Debug.Log("trayed menu is full!");
+        }
+    }
+
     private void displayMakerUI(){
         makerUI.SetActive(true);
         serverUI.SetActive(false);

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TrayManager : MonoBehaviour
+public class TrayUIManager : MonoBehaviour
 {
-    public static TrayManager Instance{get; private set;}
+    public static TrayUIManager Instance{get; private set;}
 
     void Awake(){
         if(!Instance) Instance = this;
