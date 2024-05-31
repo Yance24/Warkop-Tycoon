@@ -6,7 +6,7 @@ public class IngredientItemDataManager : MonoBehaviour
     public TextMeshProUGUI textNumberUI;
     private StoredIngredient storedIngredientRef;
 
-    private RectTransform targetDrag;
+    // private RectTransform targetDrag;
 
     public StoredIngredient Ingredient{
         set{
@@ -18,14 +18,14 @@ public class IngredientItemDataManager : MonoBehaviour
         }
     }
 
-    public RectTransform TargetDrag{
-        set{
-            targetDrag = value;
-        }
-        get{
-            return targetDrag;
-        }
-    }
+    // public RectTransform TargetDrag{
+    //     set{
+    //         targetDrag = value;
+    //     }
+    //     get{
+    //         return targetDrag;
+    //     }
+    // }
 
     public void refreshText(){
         textNumberUI.text = ""+storedIngredientRef.amount;

@@ -9,8 +9,8 @@ public class IngredientsMenuItemManager : MonoBehaviour
     // [SerializeField]
     // private List<IngredientsMenuItem> ingredientItemUI;
 
-    [SerializeField]
-    private RectTransform targetDrag;
+    // [SerializeField]
+    // private RectTransform targetDrag;
 
     [Serializable]
     class IngredientsReferecence{
@@ -34,7 +34,7 @@ public class IngredientsMenuItemManager : MonoBehaviour
                 ingredients.uiObject.SetActive(true);
                 IngredientItemDataManager dataManager = ingredients.uiObject.GetComponent<IngredientItemDataManager>();
                 dataManager.Ingredient = storedIngredientRef;
-                dataManager.TargetDrag = targetDrag;
+                // dataManager.TargetDrag = targetDrag;
                 
             }else{
                 ingredients.uiObject.SetActive(false);
@@ -49,7 +49,7 @@ public class IngredientsMenuItemManager : MonoBehaviour
                 ingredients.uiObject.SetActive(true);
                 IngredientItemDataManager dataManager = ingredients.uiObject.GetComponent<IngredientItemDataManager>();
                 dataManager.Ingredient = storedIngredientRef;
-                dataManager.TargetDrag = targetDrag;
+                // dataManager.TargetDrag = targetDrag;
                 
             }else{
                 ingredients.uiObject.SetActive(false);

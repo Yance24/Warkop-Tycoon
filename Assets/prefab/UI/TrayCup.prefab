@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 91.3}
-  m_SizeDelta: {x: 238.8918, y: 24.2362}
+  m_AnchoredPosition: {x: 0.0010099, y: 54.4}
+  m_SizeDelta: {x: 60.002, y: 24.2362}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9104537004316441320
 CanvasRenderer:
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 10.5
+  m_fontSizeBase: 10.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 5514710123563496812}
   - component: {fileID: 618293788435959476}
   - component: {fileID: 6274346715819242820}
+  - component: {fileID: -1671388705746939159}
   m_Layer: 5
   m_Name: TrayCup
   m_TagString: Untagged
@@ -171,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -162.13, y: 49}
-  m_SizeDelta: {x: 90, y: 122.95}
+  m_SizeDelta: {x: 60, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5514710123563496812
 CanvasRenderer:
@@ -224,3 +225,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuName: {fileID: 5323309629826723045}
+  menuParameter: {fileID: 0}
+  index: 0
+--- !u!114 &-1671388705746939159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8687770397770903019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3858460620d89a7428b88b7b8004837f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDrag: {fileID: 0}

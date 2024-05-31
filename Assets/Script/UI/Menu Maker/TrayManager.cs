@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class TrayManager : MonoBehaviour
 {
+    public static TrayManager Instance{get; private set;}
+
+    void Awake(){
+        if(!Instance) Instance = this;
+        else Destroy(gameObject);
+    }
+
     void OnEnable(){
         refreshUI();
     }
 
-    void refreshUI(){
+    public void refreshUI(){
         clearTray();
         List<MenuParameter> craftedMenu = MenuMakerManager.Instance.CraftedMenu;
         List<GameObject> uiSlot = MenuMakerManager.Instance.traySlot;
