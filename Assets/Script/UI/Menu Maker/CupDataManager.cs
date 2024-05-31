@@ -1,14 +1,25 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class CupDataManager : MonoBehaviour
 {
+    public TextMeshProUGUI textUI;
+    public int maxIngredientSlot;
     private List<StoredIngredient> addedIngredient = new List<StoredIngredient>();
 
-    public void addIngredients(StoredIngredient ingredient){
+    void OnEnable(){
+        refreshSlotUI();
+    }
+
+    public bool addIngredients(StoredIngredient ingredient){
+        if(addedIngredient.Count >= maxIngredientSlot) return false;
         addedIngredient.Add(ingredient);
+        refreshSlotUI();
+        return true;
+
         // foreach(StoredIngredient storedIngredient in addedIngredient){
         //     Debug.Log("Stored Ingredients: "+storedIngredient.ingredient.name);
         // }
@@ -24,6 +35,7 @@ public class CupDataManager : MonoBehaviour
         if(craftedMenu != null){
             Debug.Log(craftedMenu.name+" Have been crafted!!");
             addedIngredient.Clear();
+            refreshSlotUI();
         }else{
             Debug.Log("There is no menu to be crafted");
         }
@@ -68,5 +80,13 @@ public class CupDataManager : MonoBehaviour
             }
         addedIngredient.Clear();
         IngredientsMenuItemManager.Instance.refreshIngredientsUi();
+        refreshSlotUI();
+    }
+
+    private void refreshSlotUI(){
+        if(textUI != null){
+            // Debug.Log(addedIngredient.Count+"/"+maxIngredientSlot);
+            textUI.text = addedIngredient.Count+"/"+maxIngredientSlot;
+        }
     }
 }
