@@ -1,15 +1,29 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 
 public class MenuMakerManager : MonoBehaviour
 {
     public GameObject makerUI;
     public GameObject serverUI;
     public GameObject rightGroupButton;
+    public GameObject background;
+
+    public List<GameObject> traySlot;
 
     public static MenuMakerManager Instance{get; private set;}
+    private List<MenuParameter> craftedMenu = new List<MenuParameter>();
+
+    public List<MenuParameter> CraftedMenu{
+        get{return craftedMenu;}
+    }
+
+    public bool addMenu(MenuParameter menu){
+        if(craftedMenu.Count < traySlot.Count){
+            craftedMenu.Add(menu);
+            return true;
+        }
+        else return false;
+    }
 
     void Awake(){
         if(!Instance) Instance = this;
@@ -32,16 +46,19 @@ public class MenuMakerManager : MonoBehaviour
     private void displayMakerUI(){
         makerUI.SetActive(true);
         serverUI.SetActive(false);
+        background.SetActive(true);
     }
 
     private void displayServerUI(){
         serverUI.SetActive(true);
         makerUI.SetActive(false);
+        background.SetActive(true);
     }
 
     private void noDisplay(){
         makerUI.SetActive(false);
         serverUI.SetActive(false);
+        background.SetActive(false);
         NotaDataManager.Instance.SelectedNota = false;
         RightGroupButton = false;
     }

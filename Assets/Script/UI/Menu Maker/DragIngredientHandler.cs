@@ -14,8 +14,7 @@ public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHand
     private CupDataManager cupDataManager;
     private Bounds targetBounds;
     private Bounds currentBounds;
-    
-    
+        
 
     void Start(){
         rectTransform = transform as RectTransform;
@@ -52,7 +51,7 @@ public class DragIngredientHandler : MonoBehaviour, IBeginDragHandler, IDragHand
     {
         rectTransform.anchoredPosition = (itemClone.transform as RectTransform).anchoredPosition;
         if(currentBounds.Intersects(targetBounds)){
-            if(cupDataManager.addIngredients(dataManager.Ingredient)) dataManager.Ingredient.amount--;;
+            if(cupDataManager.addIngredients(dataManager.Ingredient)) dataManager.Ingredient.amount--;
             IngredientsMenuItemManager.Instance.refreshIngredientsUi();
         }
         Destroy(itemClone);

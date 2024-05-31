@@ -33,8 +33,12 @@ public class CupDataManager : MonoBehaviour
         
         GameObject craftedMenu = tryCraft(ingredientsToCraft);
         if(craftedMenu != null){
-            Debug.Log(craftedMenu.name+" Have been crafted!!");
-            addedIngredient.Clear();
+            // Debug.Log(craftedMenu.name+" Have been crafted!!");
+            if(MenuMakerManager.Instance.addMenu(craftedMenu.GetComponent<MenuParameter>())){
+                addedIngredient.Clear();    
+            }else{
+                Debug.Log("Tray Full!!!");
+            }
             refreshSlotUI();
         }else{
             Debug.Log("There is no menu to be crafted");
