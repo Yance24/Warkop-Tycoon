@@ -1,18 +1,26 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGetTray : PlayerNpcAction
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void execute()
     {
-        
+        base.execute();
+        StartCoroutine(ActionProcess());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    IEnumerator ActionProcess(){
+        yield return null;
+        TrayedMenuWrap trayedMenu = new GameObject().AddComponent<TrayedMenuWrap>();
+        trayedMenu.tray = TrayManager.Instance.pullTray();
+        if(trayedMenu.tray != null){
+            yield return new WaitForSeconds(2);
+            Debug.Log("tray saved to data list");
+            actionsDataList.setData("trayed menu",trayedMenu.gameObject);
+            finish();
+        }else{
+            Debug.Log("there is no tray");
+            failed();
+        }
     }
 }

@@ -13,6 +13,10 @@ public class TrayedMenu{
     }
 }
 
+public class TrayedMenuWrap : MonoBehaviour{
+    public TrayedMenu tray;
+}
+
 public class TrayManager : MonoBehaviour
 {
     public int maximumTrayedMenu;
@@ -30,5 +34,12 @@ public class TrayManager : MonoBehaviour
         if(trayedMenus.Count >= maximumTrayedMenu) return false;
         trayedMenus.Add(trayedMenu);
         return true;
+    }
+
+    public TrayedMenu pullTray(){
+        if(trayedMenus.Count <= 0) return null;
+        TrayedMenu trayedMenu = trayedMenus[0];
+        trayedMenus.RemoveAt(0);
+        return trayedMenu;
     }
 }
