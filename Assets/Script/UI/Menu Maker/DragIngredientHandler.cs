@@ -12,7 +12,6 @@ public class DragIngredientHandler : DragUIHandler
         base.setupDrag();
         dataManager = GetComponent<IngredientItemDataManager>();
         cupDataManager = targetDrag.GetComponent<CupDataManager>();
-
     }
     protected override void execute()
     {

@@ -15,11 +15,11 @@ public class PlayerGetTray : PlayerNpcAction
         trayedMenu.tray = TrayManager.Instance.pullTray();
         if(trayedMenu.tray != null){
             yield return new WaitForSeconds(2);
-            Debug.Log("tray saved to data list");
-            actionsDataList.setData("trayed menu",trayedMenu.gameObject);
+            // Debug.Log("tray saved to data list");
+            actionsDataList.setData("Trayed Menu",trayedMenu.gameObject);
             finish();
         }else{
-            Debug.Log("there is no tray");
+            // Debug.Log("there is no tray");
             failed();
         }
     }

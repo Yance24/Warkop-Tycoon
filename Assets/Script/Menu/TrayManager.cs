@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TrayedMenu{
-    public List<MenuParameter> createdMenus;
+    public List<MenuParameter> createdMenus = new List<MenuParameter>();
     public NotaDataBuffer notaData;
 
     public TrayedMenu(List<MenuParameter> createdMenus, NotaDataBuffer notaData){
-        this.createdMenus = createdMenus;
+        foreach(MenuParameter createdMenu in createdMenus){
+            this.createdMenus.Add(createdMenu);
+        }
         this.notaData = notaData;
     }
 }

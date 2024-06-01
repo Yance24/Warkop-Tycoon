@@ -32,6 +32,7 @@ public class MenuMakerManager : MonoBehaviour
 
     public void createMenu(){
         displayMakerUI();
+        MainStatsUIManager.Instance.display(false);
     }
 
     public void backButton(){
@@ -72,6 +73,7 @@ public class MenuMakerManager : MonoBehaviour
         background.SetActive(false);
         NotaDataManager.Instance.SelectedNota = false;
         RightGroupButton = false;
+        MainStatsUIManager.Instance.display(true);
     }
 
     public bool isMenuMakerActive(){

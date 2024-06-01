@@ -32,6 +32,7 @@ public class BaseObjectsMovement : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        // Debug.Log("animator : "+animator);
     }
 
     void FixedUpdate(){

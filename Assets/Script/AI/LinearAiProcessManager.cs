@@ -38,7 +38,7 @@ public class LinearAiProcessManager : BaseAiProcessManager
                 if(currentAction.IsFailed){
                     do{
                         pickAction();
-                    }while(currentAction && !currentAction.isChained);
+                    }while(currentAction && currentAction.isChained);
                 }else pickAction();
 
             }else if(!currentAction.IsRunning){

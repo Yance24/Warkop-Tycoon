@@ -16,7 +16,11 @@ public class IngredientsStorage : MonoBehaviour
     
 
     [SerializeField]
-    private List<StoredIngredient> storedIngredients = new List<StoredIngredient>();    
+    private List<StoredIngredient> storedIngredients = new List<StoredIngredient>();
+
+    public List<StoredIngredient> StoredIngredients{
+        get{return storedIngredients;}
+    }
 
     void Awake(){
         if(!Instance) Instance = this;
@@ -29,7 +33,7 @@ public class IngredientsStorage : MonoBehaviour
 
     void init(){
         //init all ingredients
-        setupStoredIngredients();
+        // setupStoredIngredients();
     }
 
     void setupStoredIngredients(){
