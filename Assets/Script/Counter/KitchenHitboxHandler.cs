@@ -5,6 +5,6 @@ using UnityEngine;
 public class KitchenHitboxHandler : MonoBehaviour, IInteractableObject
 {
     public void onClick(){
-        PlayerInputManager.Instance.addInputBuffer(new InputBuffer("Create Menu",null));
+        PlayerInputManager.Instance.addInputBuffer(new InputBuffer("Create Menu"));
     }
 }

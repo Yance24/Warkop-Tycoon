@@ -14,7 +14,7 @@ public class BaseCostumerSpawner : MonoBehaviour
     }
 
     IEnumerator spawner(){
-        spawnCostumer();
+        // spawnCostumer();
         // yield return new WaitForSeconds(4);
         // spawnCostumer();
         // yield return new WaitForSeconds(3);

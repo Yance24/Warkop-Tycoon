@@ -51,9 +51,9 @@ public class PlayerInputManager : MonoBehaviour
         while(true){
             if(inputBufferList.Count > 0 && !currentProcess){
                 pullInputBuffer();
+                // Debug.Log("Current Buffer: "+currentProcess.name);
                 currentProcess.setup(gameObject);
                 currentProcess.execute();
-                // Debug.Log("Current Buffer: "+currentProcess.name);
                 // Debug.Log("inputBuffer List: ");
                 foreach(InputBuffer inputBuffer in inputBufferList){
                     Debug.Log(inputBuffer.inputType);

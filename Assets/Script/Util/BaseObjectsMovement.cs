@@ -45,10 +45,10 @@ public class BaseObjectsMovement : MonoBehaviour
 
     public void setTarget(Vector2 target){
         isEndDirection = false;
-        if(this.target == target) {
-            isReached = true;
-            return;
-        }
+        // if(this.target == target) {
+        //     isReached = true;
+        //     return;
+        // }
         this.target = target;
         isReached = false;
         getDirection();
@@ -64,10 +64,10 @@ public class BaseObjectsMovement : MonoBehaviour
         }
         else isEndDirection = false;
         Vector2 target = obj.position;
-        if(this.target == target) {
-            isReached = true;
-            return;
-        }
+        // if(this.target == target) {
+        //     isReached = true;
+        //     return;
+        // }
         this.target = target;
         isReached = false;
         getDirection();

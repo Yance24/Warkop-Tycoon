@@ -31,6 +31,4 @@ public class TrayManager : MonoBehaviour
         trayedMenus.Add(trayedMenu);
         return true;
     }
-
-
 }

@@ -13,4 +13,8 @@ public class InputBuffer
         this.inputType = name;
         this.data = data;
     }
+
+    public InputBuffer(string name){
+        inputType = name;
+    }
 }

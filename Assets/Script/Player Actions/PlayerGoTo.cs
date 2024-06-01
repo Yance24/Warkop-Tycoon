@@ -14,9 +14,9 @@ public class PlayerGoTo : PlayerNpcAction
         StartCoroutine(ActionProcess());
     }
 
-    private void setupTarget(){
-        if(data != null) target = data;
-    }
+    // private void setupTarget(){
+    //     if(data != null) target = data;
+    // }
 
     private void setupObjectMovement(){
         foreach(GameObject objects in objectsRef){
@@ -39,7 +39,7 @@ public class PlayerGoTo : PlayerNpcAction
 
     IEnumerator ActionProcess(){
         yield return null;
-        setupTarget();
+        // setupTarget();
         setupObjectMovement();
         gotoTarget();
         while(!hasReachedSeats()){

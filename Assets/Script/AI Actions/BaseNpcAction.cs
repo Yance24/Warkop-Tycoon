@@ -38,6 +38,7 @@ public class BaseNpcAction : MonoBehaviour
         isRunning = false;
         isFinished = false;
         isFailed = false;
+        // Debug.Log(gameObject.name+" Resetted the value!");
     }
 
     public virtual void execute(){
