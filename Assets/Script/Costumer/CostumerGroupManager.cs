@@ -7,6 +7,7 @@ public class CostumerGroupManager : MonoBehaviour
     public BaseAiProcessManager AiHandler;
 
     void Start(){
+        AiHandler.GetComponent<ActionsDataList>().setData("Group Manager",gameObject);
         AiHandler.setup(costumerObjects);
         // Debug.Log("Ai Handler Setup Complete");
         // Debug.Log("Ai Handler Executing...");

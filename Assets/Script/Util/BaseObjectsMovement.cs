@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseObjectsMovement : MonoBehaviour
 {
+    
     public float speed;
     protected SpriteRenderer sprite;
     protected Vector2 target;
@@ -12,9 +13,14 @@ public class BaseObjectsMovement : MonoBehaviour
     protected bool isReached = false;
     protected bool isEndDirection = false;
     protected bool endDirection = false;
+    protected Animator animator;
 
     public bool IsMoving{
         get{return isMoving;}
+        set{
+            isMoving = value;
+            animator.SetBool("isWalking",value);
+        }
     }
 
     public bool IsReached{
@@ -25,6 +31,7 @@ public class BaseObjectsMovement : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate(){
@@ -36,7 +43,7 @@ public class BaseObjectsMovement : MonoBehaviour
 
     protected void checkReachedTarget(){
         if((moveDirection.x > 0 && transform.position.x >= target.x) || (moveDirection.x < 0 && transform.position.x <= target.x)){
-            isMoving = false;
+            IsMoving = false;
             isReached = true;
             transform.position = new Vector2(target.x,transform.position.y);
             if(isEndDirection) setFlipX(endDirection);
@@ -53,7 +60,7 @@ public class BaseObjectsMovement : MonoBehaviour
         isReached = false;
         getDirection();
         StartCoroutine(flipSprite());
-        if(moveDirection.x != 0) isMoving = true;
+        if(moveDirection.x != 0) IsMoving = true;
     }
 
     public void setTarget(Transform obj){
@@ -72,7 +79,7 @@ public class BaseObjectsMovement : MonoBehaviour
         isReached = false;
         getDirection();
         StartCoroutine(flipSprite());
-        if(moveDirection.x != 0) isMoving = true;
+        if(moveDirection.x != 0) IsMoving = true;
     }
 
     public void setFlipX(bool value){

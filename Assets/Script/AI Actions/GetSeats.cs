@@ -35,7 +35,7 @@ public class GetSeats : BaseNpcAction
         }
         if(seatRef){
             targetSeat = seatRef;
-            targetSeat.setOccupied(objectsRef);
+            targetSeat.setOccupied(actionsDataList.getData("Group Manager").GetComponent<CostumerGroupManager>());
             return true;
         }else return false;
     }

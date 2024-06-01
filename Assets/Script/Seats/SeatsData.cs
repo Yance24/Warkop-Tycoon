@@ -5,13 +5,13 @@ public class SeatsData : FacilityData
 {
     public List<GameObject> chairs;
     
-    protected List<GameObject> occupiedBy = new List<GameObject>();
+    protected CostumerGroupManager occupiedBy;
     public bool IsOccupied{
-        get{return occupiedBy.Count > 0;}
-    }
-    public List<GameObject> GetOccupiedBy{
         get{return occupiedBy;}
     }
+    // public List<GameObject> GetOccupiedBy{
+    //     get{return occupiedBy;}
+    // }
 
     private bool isOrdering = false;
     public bool IsOrdering{
@@ -19,15 +19,15 @@ public class SeatsData : FacilityData
         set{isOrdering = value;}
     }
 
-    public void setOccupied(List<GameObject> occupiedBy){
+    public void setOccupied(CostumerGroupManager occupiedBy){
         this.occupiedBy = occupiedBy;
     }
     
-    public List<GameObject> getOccupiedBy(){
+    public CostumerGroupManager getOccupiedBy(){
         return occupiedBy;
     }
 
     public void clearOccupied(){
-        occupiedBy.Clear();
+        occupiedBy = null;
     }
 }
