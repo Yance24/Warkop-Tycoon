@@ -15,9 +15,9 @@ public class TrayedMenu{
     }
 }
 
-public class TrayedMenuWrap : MonoBehaviour{
-    public TrayedMenu tray;
-}
+// public class TrayedMenuWrap : MonoBehaviour{
+//     public TrayedMenu tray;
+// }
 
 public class TrayManager : MonoBehaviour
 {

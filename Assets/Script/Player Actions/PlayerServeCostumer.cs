@@ -35,11 +35,11 @@ public class PlayerServeCostumer : PlayerNpcAction
         
         if(checkServedMenu(createdMenus,orderedMenus)){
             //Correct order
-            Debug.Log("Correct Order!");
-
+            // Debug.Log("Correct Order!");
+            
         }else{
             //false order
-            Debug.Log("Wrong Order!");
+            // Debug.Log("Wrong Order!");
         }
     }
 
@@ -52,12 +52,14 @@ public class PlayerServeCostumer : PlayerNpcAction
                 PlayerMoney.Money += orderedMenu.Price;
             }
         }
+        CostumerGroupManager costumerGroup = trayedMenu.notaData.seatsData.getOccupiedBy();
+        costumerGroup.AiHandler.GetComponent<ActionsDataList>().setData("Served",true);
         return orderedMenus.Count <= 0;
     }
 
     IEnumerator ActionProcess(){
         yield return null;
-        trayedMenu = actionsDataList.getData("Trayed Menu").GetComponent<TrayedMenuWrap>().tray;
+        trayedMenu = (TrayedMenu) actionsDataList.getData("Trayed Menu");
 
         if(trayedMenu == null){
             failed();
@@ -65,6 +67,7 @@ public class PlayerServeCostumer : PlayerNpcAction
         }
         yield return new WaitForSeconds(2);
         serveCostumer();
+
 
         finish();
         yield break;

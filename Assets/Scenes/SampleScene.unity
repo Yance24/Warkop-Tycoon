@@ -1965,8 +1965,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0017000437, y: -2.1605, z: 0}
-    m_Extent: {x: 3.5166001, y: 3.1461, z: 0}
+    m_Center: {x: -0.0047500134, y: -2.1670501, z: 0}
+    m_Extent: {x: 3.51025, y: 3.14135, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -2825,8 +2825,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0038499832, y: -2.1582499, z: 0}
-    m_Extent: {x: 3.51125, y: 3.14355, z: 0}
+    m_Center: {x: 0.0038499832, y: -2.16885, z: 0}
+    m_Extent: {x: 3.51025, y: 3.14715, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3767,8 +3767,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0020999908, y: -2.1687, z: 0}
-    m_Extent: {x: 3.5098, y: 3.1439998, z: 0}
+    m_Center: {x: 0.0028500557, y: -2.16205, z: 0}
+    m_Extent: {x: 3.50545, y: 3.15155, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -4228,8 +4228,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0018000603, y: -2.1658, z: 0}
-    m_Extent: {x: 3.5098, y: 3.144, z: 0}
+    m_Center: {x: 0.00080001354, y: -2.1614, z: 0}
+    m_Extent: {x: 3.5117998, y: 3.149, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10162,8 +10162,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0025498867, y: -2.164, z: 0}
-    m_Extent: {x: 3.50825, y: 3.1483998, z: 0}
+    m_Center: {x: 0.0072499514, y: -2.1628, z: 0}
+    m_Extent: {x: 3.5125499, y: 3.1487, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -14032,8 +14032,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0062999725, y: -2.1685, z: 0}
-    m_Extent: {x: 3.5132, y: 3.1451, z: 0}
+    m_Center: {x: 0.008649945, y: -2.16055, z: 0}
+    m_Extent: {x: 3.51305, y: 3.14955, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -16631,8 +16631,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0009499788, y: -2.15975, z: 0}
-    m_Extent: {x: 3.5058498, y: 3.15065, z: 0}
+    m_Center: {x: 0.0014499426, y: -2.1691, z: 0}
+    m_Extent: {x: 3.5202498, y: 3.1471999, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -16719,8 +16719,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.00080001354, y: -2.16275, z: 0}
-    m_Extent: {x: 3.5145998, y: 3.1428502, z: 0}
+    m_Center: {x: -0.006649971, y: -2.16575, z: 0}
+    m_Extent: {x: 3.51335, y: 3.1424499, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -17160,6 +17160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1993413482}
   - component: {fileID: 1993413481}
+  - component: {fileID: 1993413483}
   m_Layer: 0
   m_Name: CostumerSpawn
   m_TagString: EntranceDoor
@@ -17195,6 +17196,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1993413483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993413480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b862f50a9886bf44808724df094303e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2018310755
 GameObject:
   m_ObjectHideFlags: 0
@@ -18680,7 +18693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc06ad81f0326f41b4838058b6e6db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  speed: 2
 --- !u!61 &5970967817626973813
 BoxCollider2D:
   m_ObjectHideFlags: 0

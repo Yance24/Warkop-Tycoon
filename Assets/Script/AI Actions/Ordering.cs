@@ -16,6 +16,8 @@ public class Ordering : BaseNpcAction
     private List<MenuParameter> menuParameters;
     private List<MenuParameter> pickedMenu = new List<MenuParameter>();
 
+    private int currentWaitingTime;
+
     protected class MenuScore{
         public int score;
         public MenuParameter menu;
@@ -29,7 +31,7 @@ public class Ordering : BaseNpcAction
     }
 
     private bool setupHitBoxHandler(){
-        data = actionsDataList.getData("currentSeat").GetComponent<SeatsData>();
+        data = ((GameObject) actionsDataList.getData("currentSeat")).GetComponent<SeatsData>();
         return data;
     }
 
@@ -105,6 +107,12 @@ public class Ordering : BaseNpcAction
         NotaDataManager.Instance.writeMenu(pickedMenu,data);
     }
 
+    private void getWaitingTime(){
+        int random = UnityEngine.Random.Range(1,waitingTimeDeviation + 1);
+        random -= waitingTimeDeviation;
+        currentWaitingTime = averageWaitingInSeconds + random;
+    }
+
     IEnumerator ActionProcess(){
         yield return null;
 
@@ -131,8 +139,21 @@ public class Ordering : BaseNpcAction
         
         // Debug.Log("setupUI");
         setupNotaUI();
+
+        getWaitingTime();
+
+        while(currentWaitingTime > 0){
+            if((bool?)actionsDataList.getData("Served") != null){
+                Debug.Log("Served");
+                finish();
+                yield break;
+            }
+            currentWaitingTime--;
+            yield return new WaitForSeconds(1);
+        }
+
         
-        finish();
+        failed();
         yield break;
     }
 }

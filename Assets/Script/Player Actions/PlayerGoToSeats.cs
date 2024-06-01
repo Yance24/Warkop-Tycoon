@@ -7,7 +7,7 @@ public class PlayerGoToSeats : PlayerGoTo
     protected override void setupTarget()
     {
         base.setupTarget();
-        TrayedMenuWrap data = actionsDataList.getData("Trayed Menu").GetComponent<TrayedMenuWrap>();
-        if(data) target = data.tray.notaData.seatsData.transform;
+        TrayedMenu data = (TrayedMenu) actionsDataList.getData("Trayed Menu");
+        if(data != null) target = data.notaData.seatsData.transform;
     }
 }
