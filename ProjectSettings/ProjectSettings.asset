@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: 2d core (copy here)
+  companyName: Holic Games Studio
+  productName: BoejangCoffee
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}

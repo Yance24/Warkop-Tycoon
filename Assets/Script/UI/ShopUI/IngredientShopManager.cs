@@ -35,6 +35,7 @@ public class IngredientShopManager : MonoBehaviour
                 IngredientsStorage.Instance.addIngredient(item.IngredientRef,item.Amount);
             }
             ShopUIManager.Instance.noDisplay();
+            DayCycle.Instance.restartDay();
         }else{
             Debug.Log("Not Enough Money");
         }

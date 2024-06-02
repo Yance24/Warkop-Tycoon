@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class DayCycle : MonoBehaviour
 {
-    // public static DayCycle Instance{get;private set;}
+    public static DayCycle Instance{get;private set;}
+    void Awake(){
+        if(!Instance) Instance = this;
+        else Destroy(gameObject);
+    }
     public int openTime;
     public int closeTime;
     public int timeConvert;

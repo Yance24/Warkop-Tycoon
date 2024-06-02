@@ -24,5 +24,8 @@ public class ShopUIManager : MonoBehaviour
 
     public void noDisplay(){
         IngredientShopUI.SetActive(false);
+        NotaDataManager.Instance.displayMinimizedMenu();
+        MainStatsUIManager.Instance.displayMoney = true;
+        MainStatsUIManager.Instance.displayTime = true;
     }
 }
