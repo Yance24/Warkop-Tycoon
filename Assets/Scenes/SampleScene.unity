@@ -2733,8 +2733,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.054500103, y: -1.4545499, z: 0}
-    m_Extent: {x: 3.9674, y: 4.64645, z: 0}
+    m_Center: {x: 0.045750022, y: -1.45465, z: 0}
+    m_Extent: {x: 3.96455, y: 4.64435, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -9259,7 +9259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31733e0670e15346810ef952e5d62cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPrefab: []
+  menuPrefab:
+  - {fileID: 2050545859150360386, guid: 168b60321103e3b43802b2b54c0a218b, type: 3}
+  - {fileID: 7433678133464317882, guid: 7498226eec3f81e40900dd69ca94371c, type: 3}
   menuParameters: []
 --- !u!114 &1283165459
 MonoBehaviour:
@@ -9623,8 +9625,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.048450112, y: -1.44195, z: 0}
-    m_Extent: {x: 3.9706502, y: 4.64235, z: 0}
+    m_Center: {x: 0.04674995, y: -1.45115, z: 0}
+    m_Extent: {x: 3.9678497, y: 4.64425, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -16099,8 +16101,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.04519999, y: -1.4508001, z: 0}
-    m_Extent: {x: 3.9667, y: 4.6472, z: 0}
+    m_Center: {x: 0.039950132, y: -1.44725, z: 0}
+    m_Extent: {x: 3.96935, y: 4.63735, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -18953,9 +18955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionHandlers:
-  - actionString: {fileID: 0}
+  - actionString: {fileID: 1418298229}
     actionType: Create Menu
-  - actionString: {fileID: 0}
+  - actionString: {fileID: 1582968377}
     actionType: Serve Drink
 --- !u!114 &5970967817626973815
 MonoBehaviour:
