@@ -3396,6 +3396,7 @@ GameObject:
   - component: {fileID: 114944776}
   - component: {fileID: 114944778}
   - component: {fileID: 114944777}
+  - component: {fileID: 114944779}
   m_Layer: 0
   m_Name: ShopArea
   m_TagString: Untagged
@@ -3464,6 +3465,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114944775}
   m_CullTransparentMesh: 1
+--- !u!114 &114944779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114944775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022f43f94c534ab48bb0daa74d9d3a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &121943190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,8 +4436,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.048199892, y: -1.4544001, z: 0}
-    m_Extent: {x: 3.9731, y: 4.649, z: 0}
+    m_Center: {x: 0.052349925, y: -1.4459499, z: 0}
+    m_Extent: {x: 3.9742498, y: 4.6388497, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10943,8 +10956,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.05130005, y: -1.4521, z: 0}
-    m_Extent: {x: 3.9674, y: 4.6389, z: 0}
+    m_Center: {x: 0.05334997, y: -1.4521501, z: 0}
+    m_Extent: {x: 3.9707499, y: 4.64485, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -17804,8 +17817,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.042949915, y: -1.4551499, z: 0}
-    m_Extent: {x: 3.96505, y: 4.64515, z: 0}
+    m_Center: {x: 0.045449853, y: -1.4588, z: 0}
+    m_Extent: {x: 3.96355, y: 4.6444, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -19135,7 +19148,7 @@ MonoBehaviour:
   - {fileID: 8097225758363167138, guid: d32b7787b77f31343ada78ec260af1aa, type: 3}
   - {fileID: 8097225758363167138, guid: 48f941ee0e178dc44af324e79dc89697, type: 3}
   - {fileID: 8097225758363167138, guid: f9d3afb12aa9a614fb29435e08e222b0, type: 3}
-  chanceSpawn: 0.05
+  chanceSpawn: 0.02
 --- !u!4 &1993413482
 Transform:
   m_ObjectHideFlags: 0
@@ -19262,7 +19275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2035757760
 RectTransform:
   m_ObjectHideFlags: 0

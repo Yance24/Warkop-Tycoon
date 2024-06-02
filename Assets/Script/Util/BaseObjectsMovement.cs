@@ -20,6 +20,7 @@ public class BaseObjectsMovement : MonoBehaviour
         set{
             isMoving = value;
             animator.SetBool("isWalking",value);
+            animator.SetBool("sitting",false);
         }
     }
 

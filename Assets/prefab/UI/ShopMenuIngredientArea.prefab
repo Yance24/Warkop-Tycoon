@@ -398,6 +398,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7443156315914801228}
+  - component: {fileID: 4658263959648740653}
   m_Layer: 0
   m_Name: ShopMenuIngredientArea
   m_TagString: Untagged
@@ -429,6 +430,18 @@ RectTransform:
   m_AnchoredPosition: {x: -3.03, y: -101.92}
   m_SizeDelta: {x: 239.04, y: 29.839996}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4658263959648740653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2326852890970224468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b2c03a62530c747a1ab8a0115654b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3193692814224093240
 GameObject:
   m_ObjectHideFlags: 0
