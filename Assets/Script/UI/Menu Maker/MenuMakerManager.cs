@@ -67,7 +67,7 @@ public class MenuMakerManager : MonoBehaviour
         background.SetActive(true);
     }
 
-    private void noDisplay(){
+    public void noDisplay(){
         makerUI.SetActive(false);
         serverUI.SetActive(false);
         background.SetActive(false);

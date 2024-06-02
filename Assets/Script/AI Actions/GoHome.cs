@@ -15,7 +15,9 @@ public class GoHome : BaseNpcAction
         GameObject seat = (GameObject)actionsDataList.getData("currentSeat");
         if(!seat) return;
         SeatsData data = seat.GetComponent<SeatsData>();
+        // Debug.Log("Occupiedby : "+data.getOccupiedBy());
         data.clearOccupied();
+        // Debug.Log("Occupiedby : "+data.getOccupiedBy());
     }
 
     private void setupObjectMovement(){

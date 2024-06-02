@@ -46,4 +46,13 @@ public class IngredientsStorage : MonoBehaviour
     public StoredIngredient getIngredients(string name){
         return storedIngredients.Find(obj => obj.ingredient.ingredientName == name);
     }
+
+    public void addIngredient(Ingredient ingredient, int amount){
+        StoredIngredient storedIngredient = storedIngredients.Find(Component => Component.ingredient == ingredient);
+        if(storedIngredient != null){
+            storedIngredient.amount += amount;
+        }else{
+            storedIngredients.Add(new StoredIngredient{ingredient = ingredient, amount = amount});
+        }
+    }
 }

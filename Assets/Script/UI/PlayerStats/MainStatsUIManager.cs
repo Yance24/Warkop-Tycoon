@@ -22,5 +22,11 @@ public class MainStatsUIManager : MonoBehaviour
         timeUI.SetActive(value);
     }
 
-    
+    public bool displayMoney{
+        set{moneyUI.SetActive(value);}
+    }
+
+    public bool displayTime{
+        set{timeUI.SetActive(value);}
+    }    
 }

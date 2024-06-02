@@ -75,6 +75,11 @@ public class NotaDataManager : MonoBehaviour
         maximizedNota.SetActive(true);
     }
 
+    public void noDisplay(){
+        minimizedNota.SetActive(false);
+        maximizedNota.SetActive(false);
+    }
+
     public bool SelectedNota{
         set{selectedNota.SetActive(value);}
     }

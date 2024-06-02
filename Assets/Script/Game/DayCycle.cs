@@ -61,5 +61,15 @@ public class DayCycle : MonoBehaviour
             TimeChange?.Invoke();
         }
         IsDayEnd = true;
+        TimeChange?.Invoke();
+
+        while(!BaseCostumerSpawner.Instance.isNoCostumer()){
+            yield return new WaitForFixedUpdate();
+        }
+        endDaySequence();
+    }
+
+    void endDaySequence(){
+        ShopUIManager.Instance.displayIngredientShop();
     }
 }

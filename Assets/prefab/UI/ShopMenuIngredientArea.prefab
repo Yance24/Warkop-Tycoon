@@ -254,7 +254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 677467504976894866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4658263959648740653}
+        m_TargetAssemblyTypeName: IngredientShopItemManager, Assembly-CSharp
+        m_MethodName: minButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &568885068262643463
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b2c03a62530c747a1ab8a0115654b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameUI: {fileID: 8396102135228670655}
+  hargaUI: {fileID: 7251919927048629831}
+  amountUI: {fileID: 16364291988914237}
 --- !u!1 &3193692814224093240
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +845,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4580290886345824930}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4658263959648740653}
+        m_TargetAssemblyTypeName: IngredientShopItemManager, Assembly-CSharp
+        m_MethodName: plusButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7242186656587421046
 GameObject:
   m_ObjectHideFlags: 0

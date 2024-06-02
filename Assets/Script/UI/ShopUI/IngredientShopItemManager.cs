@@ -25,6 +25,10 @@ public class IngredientShopItemManager : MonoBehaviour
         get{return harga * amount;}
     }
 
+    public Ingredient IngredientRef{
+        get{return ingredientRef;}
+    }
+
     public void setup(Ingredient ingredient){
         ingredientRef = ingredient;
         harga = ingredientRef.price;
@@ -39,10 +43,12 @@ public class IngredientShopItemManager : MonoBehaviour
 
     public void plusButton(){
         Amount++;
+        IngredientShopManager.Instance.refreshTotalPrice();
     }
 
     public void minButton(){
         Amount--;
+        IngredientShopManager.Instance.refreshTotalPrice();
     }
 
     
