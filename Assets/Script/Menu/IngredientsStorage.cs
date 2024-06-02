@@ -37,7 +37,7 @@ public class IngredientsStorage : MonoBehaviour
     }
 
     void setupStoredIngredients(){
-        List<Ingredient> ingredientsDatabase = IngredientsDatabase.Instance.GetIngredients;
+        List<Ingredient> ingredientsDatabase = IngredientsDatabase.Instance.GetIngredientList;
         foreach(Ingredient ingredients in ingredientsDatabase){
             storedIngredients.Add(new StoredIngredient{ingredient = ingredients, amount = 5});
         }

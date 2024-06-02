@@ -21,13 +21,21 @@ public class GameLoader : MonoBehaviour
     }
 
     private void loadIngredients(){
-        List<Ingredient> ingredientsDatabase = IngredientsDatabase.Instance.GetIngredients;
-        foreach(Ingredient ingredients in ingredientsDatabase){
-            IngredientsStorage.Instance.StoredIngredients.Add(new StoredIngredient{ingredient = ingredients, amount = 10});
-        }
+        IngredientsStorage.Instance.StoredIngredients.Add(
+            new StoredIngredient{ingredient = IngredientsDatabase.Instance.getIngredient("Coffe Powder"), amount = 10}
+        );
+        IngredientsStorage.Instance.StoredIngredients.Add(
+            new StoredIngredient{ingredient = IngredientsDatabase.Instance.getIngredient("Sugar"), amount = 10}
+        );
+        IngredientsStorage.Instance.StoredIngredients.Add(
+            new StoredIngredient{ingredient = IngredientsDatabase.Instance.getIngredient("Milk"), amount = 10}
+        );
+        // IngredientsStorage.Instance.StoredIngredients.Add(
+        //     new StoredIngredient{ingredient = IngredientsDatabase.Instance.getIngredient("Tea"), amount = 10}
+        // );
     }
 
     private void loadUnlockedMenu(){
-
+        
     }
 }

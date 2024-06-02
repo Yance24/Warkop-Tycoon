@@ -14,7 +14,7 @@ public class IngredientsDatabase : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public List<Ingredient> GetIngredients{
+    public List<Ingredient> GetIngredientList{
         get{
             List<Ingredient> ingredientList = new List<Ingredient>();
             foreach(GameObject ingredientObj in ingredientData){
@@ -22,5 +22,9 @@ public class IngredientsDatabase : MonoBehaviour
             }
             return ingredientList;
         }
+    }
+
+    public Ingredient getIngredient(string name){
+        return GetIngredientList.Find(component => component.name == name);
     }
 }
