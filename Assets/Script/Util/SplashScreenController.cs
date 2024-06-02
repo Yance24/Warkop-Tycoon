@@ -23,6 +23,6 @@ public class SplashScreenController : MonoBehaviour
     void LoadMainScene()
     {
         // Load the main scene
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("TitleScreen");
     }
 }
