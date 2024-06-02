@@ -1712,7 +1712,7 @@ GameObject:
   - component: {fileID: 126267265}
   - component: {fileID: 126267264}
   m_Layer: 0
-  m_Name: Tilemap_WallDeco
+  m_Name: TilemapWallDeco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4849,7 +4849,7 @@ GameObject:
   - component: {fileID: 752748466}
   - component: {fileID: 752748465}
   m_Layer: 0
-  m_Name: Tilemap_Furniture
+  m_Name: TilemapFurniture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5355,10 +5355,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1881326188}
+  - {fileID: 752748464}
   - {fileID: 126267263}
   - {fileID: 1568210068}
-  - {fileID: 752748464}
+  - {fileID: 1881326188}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &779644750
@@ -10887,7 +10887,7 @@ GameObject:
   - component: {fileID: 1568210070}
   - component: {fileID: 1568210069}
   m_Layer: 0
-  m_Name: Tilemap_Wall
+  m_Name: TilemapWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16390,7 +16390,7 @@ GameObject:
   - component: {fileID: 1881326190}
   - component: {fileID: 1881326189}
   m_Layer: 0
-  m_Name: Tilemap_Floor
+  m_Name: TilemapFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
