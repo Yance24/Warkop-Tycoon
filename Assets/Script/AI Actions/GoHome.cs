@@ -11,6 +11,13 @@ public class GoHome : BaseNpcAction
         StartCoroutine(ActionProcess());
     }
 
+    private void leaveSeat(){
+        GameObject seat = (GameObject)actionsDataList.getData("currentSeat");
+        if(!seat) return;
+        SeatsData data = seat.GetComponent<SeatsData>();
+        data.clearOccupied();
+    }
+
     private void setupObjectMovement(){
         foreach(GameObject objectRef in objectsRef){
             movement.Add(objectRef.GetComponent<BaseObjectsMovement>());
@@ -32,7 +39,7 @@ public class GoHome : BaseNpcAction
 
     IEnumerator ActionProcess(){
         yield return null;
-
+        leaveSeat();
         setupObjectMovement();
         setTarget();
         while(!hasReached()){

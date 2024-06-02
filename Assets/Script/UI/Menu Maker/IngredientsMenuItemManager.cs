@@ -30,7 +30,7 @@ public class IngredientsMenuItemManager : MonoBehaviour
     void OnEnable(){
         foreach(IngredientsReferecence ingredients in ingredientsReferecences){
             StoredIngredient storedIngredientRef = IngredientsStorage.Instance.getIngredients(ingredients.name);
-            if(storedIngredientRef.amount > 0){
+            if(storedIngredientRef != null && storedIngredientRef.amount > 0){
                 ingredients.uiObject.SetActive(true);
                 IngredientItemDataManager dataManager = ingredients.uiObject.GetComponent<IngredientItemDataManager>();
                 dataManager.Ingredient = storedIngredientRef;
@@ -45,7 +45,7 @@ public class IngredientsMenuItemManager : MonoBehaviour
     public void refreshIngredientsUi(){
         foreach(IngredientsReferecence ingredients in ingredientsReferecences){
             StoredIngredient storedIngredientRef = IngredientsStorage.Instance.getIngredients(ingredients.name);
-            if(storedIngredientRef.amount > 0){
+            if(storedIngredientRef != null && storedIngredientRef.amount > 0){
                 ingredients.uiObject.SetActive(true);
                 IngredientItemDataManager dataManager = ingredients.uiObject.GetComponent<IngredientItemDataManager>();
                 dataManager.Ingredient = storedIngredientRef;

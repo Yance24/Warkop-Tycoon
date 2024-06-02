@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isChained: 1
-  averageWaitingInSeconds: 120
-  waitingTimeDeviation: 12
+  averageWaitingInSeconds: 90
+  waitingTimeDeviation: 6

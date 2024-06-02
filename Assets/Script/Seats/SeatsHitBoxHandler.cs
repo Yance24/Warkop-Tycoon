@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SeatsHitBoxHandler : MonoBehaviour, IInteractableObject
 {
-    public PlayerInputManager player;
     private SeatsData data;
 
     void Start(){

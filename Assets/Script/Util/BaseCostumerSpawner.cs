@@ -8,9 +8,13 @@ public class BaseCostumerSpawner : MonoBehaviour
 {
     public static BaseCostumerSpawner Instance{get; private set;}
     // public float groupSpread;
-    public GameObject costumer;
+    public List<GameObject> costumer;
+
+    public float chanceSpawn;
 
     private List<GameObject> spawnedCostumer = new List<GameObject>();
+
+    Coroutine spawnerProcess;
 
     public bool isNoCostumer(){
         return spawnedCostumer.Count <= 0;
@@ -22,80 +26,37 @@ public class BaseCostumerSpawner : MonoBehaviour
     }
 
     void Start(){
-        StartCoroutine(spawner());
+        spawnerProcess = StartCoroutine(spawner());
+    }
+
+    void OnEnable(){
+        DayCycle.TimeChange += checkDayEnd;
+    }
+
+    void OnDisable(){
+        DayCycle.TimeChange -= checkDayEnd;
+    }
+
+    void checkDayEnd(){
+        if(DayCycle.IsDayEnd){
+            StopCoroutine(spawnerProcess);
+        }
     }
 
     IEnumerator spawner(){
-        spawnCostumer();
-        // yield return new WaitForSeconds(4);
-        // spawnCostumer();
-        // yield return new WaitForSeconds(3);
-
-        // while(!InGameTime.closingTime){
-        //     spawnCostumer();
-        //     yield return new WaitForSeconds(Random.Range(10,21));
-        // }
-        yield break;
+        yield return null;
+        while(true){
+            if(Random.value < chanceSpawn){
+                spawnCostumer();
+            }
+            yield return new WaitForSeconds(1);
+        }
     }
 
-    // protected CostumerGroup setupCostumerGroup(){
-    //     SeatsData seatsData = getSeat();
-    //     if(seatsData){
-    //         CostumerGroup costumerGroup = new CostumerGroup();
-    //         costumerGroup.seatsData = seatsData;
-    //         for(int i = 0; i < seatsData.chairs.Count; i++){
-    //             if(Random.Range(1,3) == 2 || i == 0) costumerGroup.costumer.Add(costumer);
-    //         }
-    //         return costumerGroup;
-    //     }else return null;
-    // }
-
-    // protected SeatsData getSeat(){    
-    //     GameObject[] seats = GameObject.FindGameObjectsWithTag("Seats");
-    //     foreach(GameObject data in seats){
-    //         SeatsData seatData = data.GetComponent<SeatsData>();
-    //         if(seatData.isAvailable){
-    //             seatData.isAvailable = false;
-    //             return seatData;
-    //         }
-    //     }
-    //     return null;
-    // }
-
     protected void spawnCostumer(){
-        //old spawn uses seats data to act as the maximum spawned costumer
-
-        // SeatsData seatsData = getSeat();
-
-        // if(seatsData){
-        //     CostumerGroup costumerGroup = new CostumerGroup{seatsData = seatsData};
-        //     for(int i = 0; i < seatsData.chairs.Count; i++){
-        //         if(Random.Range(1,3) == 2 || i == 0){
-        //             GameObject costumer = Instantiate(this.costumer);
-        //             costumer.transform.position = new Vector2(transform.position.x - groupSpread * i,transform.position.y);
-        //             costumer.GetComponent<CostumerEnjoyMeal>().seat = seatsData.chairs[i];
-        //             costumerGroup.costumer.Add(costumer.GetInstanceID());
-        //         }
-        //     }
-        //     Costumer.spawnedCostumer.Add(costumerGroup);
-        // }
-
-        // CostumerGroup costumerGroup = new CostumerGroup();
-        // for(int i = 0; i < 4; i++){
-        //     if(Random.Range(1,3) == 2 || i == 0){
-        //         GameObject costumer = Instantiate(this.costumer);
-        //         costumer.transform.position = new Vector2(transform.position.x - groupSpread * costumerGroup.costumer.Count,transform.position.y);
-        //         costumerGroup.costumer.Add(costumer.GetInstanceID());
-        //     }
-        // }
-
-        // if(costumerGroup.costumer.Count > 0) Costumer.spawnedCostumer.Add(costumerGroup);
-        GameObject costumer = Instantiate(this.costumer);
-        spawnedCostumer.Add(costumer);
-        costumer.transform.position = transform.position;
-        costumer = Instantiate(this.costumer);
-        spawnedCostumer.Add(costumer);
-        costumer.transform.position = transform.position;
+        GameObject pickedCostumer = Instantiate(costumer[Random.Range(0,costumer.Count)]);
+        pickedCostumer.transform.position = transform.position;
+        spawnedCostumer.Add(pickedCostumer);
     }
 
     public void removeCostumer(GameObject costumer){

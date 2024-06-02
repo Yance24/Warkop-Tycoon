@@ -12,6 +12,7 @@ public class DayCycle : MonoBehaviour
     private static int currentHourTime;
     private static int currentMinuteTime;
     public static event Action TimeChange;
+    public static bool IsDayEnd;
 
     public static string CurrentTime{
         get{
@@ -25,6 +26,10 @@ public class DayCycle : MonoBehaviour
 
             return hourText +":"+ minuteText;
         }
+    }
+
+    public static int CurrentHourTime{
+        get{return currentHourTime;}
     }
 
     // void Awake(){
@@ -41,6 +46,7 @@ public class DayCycle : MonoBehaviour
         currentMinuteTime = 0;
         StartCoroutine(countTime());
         TimeChange?.Invoke();
+        IsDayEnd = false;
     }
 
     IEnumerator countTime(){
@@ -54,6 +60,6 @@ public class DayCycle : MonoBehaviour
             }
             TimeChange?.Invoke();
         }
-        Debug.Log("Day End");
+        IsDayEnd = true;
     }
 }

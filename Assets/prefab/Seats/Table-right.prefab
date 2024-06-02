@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 4376780795521921225}
   - component: {fileID: 725540994595847054}
   - component: {fileID: 3777209662476309845}
+  - component: {fileID: 2704205540659281821}
   m_Layer: 0
   m_Name: Table-right
   m_TagString: Seats
@@ -237,3 +238,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.84000397, y: 0.36429787}
   m_Size: {x: 3.6921616, y: 4.1660776}
   m_Direction: 0
+--- !u!114 &2704205540659281821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536942536194388270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408de0ebeef5f554ea815d865aa4b381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
