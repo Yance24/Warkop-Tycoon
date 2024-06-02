@@ -39,6 +39,9 @@ public class GoHome : BaseNpcAction
             yield return new WaitForFixedUpdate();
         }
 
-        Destroy(((CostumerGroupManager) actionsDataList.getData("Group Manager")).gameObject);
+        // Destroy(((CostumerGroupManager) actionsDataList.getData("Group Manager")).gameObject);
+        BaseCostumerSpawner.Instance.removeCostumer(((CostumerGroupManager) actionsDataList.getData("Group Manager")).gameObject);
+        finish();
+        yield break;
     }
 }

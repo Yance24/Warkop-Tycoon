@@ -42,7 +42,7 @@ public class LinearAiProcessManager : BaseAiProcessManager
                 }else pickAction();
 
             }else if(!currentAction.IsRunning){
-                Debug.Log("Running : "+currentAction);
+                // Debug.Log("Running : "+currentAction);
                 // Debug.Log("is finished : "+currentAction.IsFinished);
                 currentAction.setup(objectsRef);
                 currentAction.execute();

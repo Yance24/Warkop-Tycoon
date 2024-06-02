@@ -144,7 +144,7 @@ public class Ordering : BaseNpcAction
 
         while(currentWaitingTime > 0){
             if((bool?)actionsDataList.getData("Served") != null){
-                Debug.Log("Served");
+                // Debug.Log("Served");
                 finish();
                 yield break;
             }
@@ -152,7 +152,9 @@ public class Ordering : BaseNpcAction
             yield return new WaitForSeconds(1);
         }
 
-        
+        NotaDataBuffer nota = NotaDataManager.Instance.NotaBuffers.Find(component => component.menu == pickedMenu);
+        NotaDataManager.Instance.NotaBuffers.Remove(nota);
+        NotaDataManager.Instance.refreshUI();
         failed();
         yield break;
     }

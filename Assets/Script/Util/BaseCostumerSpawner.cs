@@ -6,8 +6,20 @@ using UnityEngine;
 
 public class BaseCostumerSpawner : MonoBehaviour
 {
+    public static BaseCostumerSpawner Instance{get; private set;}
     // public float groupSpread;
     public GameObject costumer;
+
+    private List<GameObject> spawnedCostumer = new List<GameObject>();
+
+    public bool isNoCostumer(){
+        return spawnedCostumer.Count <= 0;
+    }
+
+    void Awake(){
+        if(!Instance) Instance = this;
+        else Destroy(gameObject);
+    }
 
     void Start(){
         StartCoroutine(spawner());
@@ -79,12 +91,14 @@ public class BaseCostumerSpawner : MonoBehaviour
 
         // if(costumerGroup.costumer.Count > 0) Costumer.spawnedCostumer.Add(costumerGroup);
         GameObject costumer = Instantiate(this.costumer);
+        spawnedCostumer.Add(costumer);
         costumer.transform.position = transform.position;
         costumer = Instantiate(this.costumer);
+        spawnedCostumer.Add(costumer);
         costumer.transform.position = transform.position;
     }
 
     public void removeCostumer(GameObject costumer){
-        // if(Costumer.spawnedCostumer.Remove(costumer)) Destroy(costumer);
+        if(spawnedCostumer.Remove(costumer)) Destroy(costumer);
     }
 }

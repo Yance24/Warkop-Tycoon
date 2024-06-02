@@ -1,54 +1,59 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class DayCycle : MonoBehaviour
 {
-    public int secondsCycle;
-    public int minutesCycle;
-    public int hoursCycle;
+    // public static DayCycle Instance{get;private set;}
+    public int openTime;
+    public int closeTime;
+    public int timeConvert;
 
-    private int percentage;
+    private static int currentHourTime;
+    private static int currentMinuteTime;
+    public static event Action TimeChange;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        InGameTime.resetTime();
-        StartCoroutine(trackTime());
-    }
+    public static string CurrentTime{
+        get{
+            string hourText;
+            if(currentHourTime < 10) hourText = "0"+currentHourTime;
+            else hourText = ""+currentHourTime;
 
-    IEnumerator trackTime(){
-        while(checkEndCycle()){
-            yield return new WaitForSeconds(1);
-            InGameTime.Seconds++;
-            setPercentage();
-            // Debug.Log(InGameTime.getTime());
+            string minuteText;
+            if(currentMinuteTime < 10) minuteText = "0"+currentMinuteTime;
+            else minuteText = ""+currentMinuteTime;
+
+            return hourText +":"+ minuteText;
         }
-        Debug.Log("EndCycle!!");
-        InGameTime.closingTime = true;
-        StartCoroutine(handleEndCycle());
     }
 
-    bool checkEndCycle(){
-        if(
-            InGameTime.Hours >= hoursCycle &&
-            InGameTime.Minutes >= minutesCycle &&
-            InGameTime.Seconds >= secondsCycle 
-        )return false;
-        return true;
+    // void Awake(){
+    //     if(!Instance) Instance = this;
+    //     else Destroy(gameObject);
+    // }
+
+    void Start(){
+        restartDay();
     }
 
-    void setPercentage(){
-        int currentTotalTime = (InGameTime.Hours * 3600) + (InGameTime.Minutes * 60) + InGameTime.Seconds;
-        int cycleTotalTime = (hoursCycle * 3600) + (minutesCycle * 60) + secondsCycle;
-        percentage = 100 * currentTotalTime / cycleTotalTime;
+    public void restartDay(){
+        currentHourTime = openTime;
+        currentMinuteTime = 0;
+        StartCoroutine(countTime());
+        TimeChange?.Invoke();
     }
 
-    
-    IEnumerator handleEndCycle(){
-        // while(!Costumer.noCostumer()){
-        //     yield return new WaitForSeconds(1);
-        // }
-        // // Debug.Log("Closing!!");
-        yield break;
+    IEnumerator countTime(){
+        yield return null;
+        while(currentHourTime < closeTime){
+            yield return new WaitForSeconds(timeConvert);
+            currentMinuteTime += 10;
+            if(currentMinuteTime >= 60){
+                currentMinuteTime = 0;
+                currentHourTime++;
+            }
+            TimeChange?.Invoke();
+        }
+        Debug.Log("Day End");
     }
 }
