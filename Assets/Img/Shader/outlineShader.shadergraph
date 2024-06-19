@@ -97,7 +97,14 @@
             "m_Id": "12f9f08a32254ec8bc5e65d02a73b285"
         }
     ],
-    "m_GroupDatas": [],
+    "m_GroupDatas": [
+        {
+            "m_Id": "9291bb147726445892edd7a52486840d"
+        },
+        {
+            "m_Id": "16eb0d45ec784b84886ca6a2a758bb2d"
+        }
+    ],
     "m_StickyNoteDatas": [],
     "m_Edges": [
         {
@@ -612,7 +619,7 @@
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "0f2bff5284ad497bb7d9959766d942e1",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "16eb0d45ec784b84886ca6a2a758bb2d"
     },
     "m_Name": "Add",
     "m_DrawState": {
@@ -703,7 +710,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "12886060ead641778a85f17a16387a4b",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "9291bb147726445892edd7a52486840d"
     },
     "m_Name": "outlineOffsetComponent",
     "m_DrawState": {
@@ -872,6 +879,17 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "VertexDescription.Normal"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "16eb0d45ec784b84886ca6a2a758bb2d",
+    "m_Title": "Add all offset",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
+    }
 }
 
 {
@@ -1103,7 +1121,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "28f1814f3ef04671b97c168e1db2f360",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "9291bb147726445892edd7a52486840d"
     },
     "m_Name": "outlineOffsetComponent",
     "m_DrawState": {
@@ -2078,7 +2096,7 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "88338a30fb9d43d3aba5675e595c24d7",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "9291bb147726445892edd7a52486840d"
     },
     "m_Name": "Property",
     "m_DrawState": {
@@ -2150,6 +2168,17 @@
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "9291bb147726445892edd7a52486840d",
+    "m_Title": "4 Direction offset",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
     }
 }
 
@@ -2256,7 +2285,7 @@
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "9afa1256b386426d82ffb3bf049b07b3",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "16eb0d45ec784b84886ca6a2a758bb2d"
     },
     "m_Name": "Add",
     "m_DrawState": {
@@ -2463,10 +2492,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 740.0000610351563,
-            "y": -4.76837158203125e-7,
-            "width": 207.99993896484376,
-            "height": 302.0000305175781
+            "x": 740.0,
+            "y": -84.0,
+            "width": 208.0,
+            "height": 302.0
         }
     },
     "m_Slots": [
@@ -2732,7 +2761,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "dbe421e4ca9240188bff655d2693fbe3",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "9291bb147726445892edd7a52486840d"
     },
     "m_Name": "outlineOffsetComponent",
     "m_DrawState": {
@@ -2873,7 +2902,7 @@
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "e9f2c3fe3f2f437181a4d251584475cd",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "16eb0d45ec784b84886ca6a2a758bb2d"
     },
     "m_Name": "Add",
     "m_DrawState": {
@@ -3106,7 +3135,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "fd05c82ffeee45b2a0c2ae9aef036ef3",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "9291bb147726445892edd7a52486840d"
     },
     "m_Name": "outlineOffsetComponent",
     "m_DrawState": {
