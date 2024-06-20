@@ -14,7 +14,7 @@ public class HoverOutline : MonoBehaviour
 
     void OnMouseEnter()
     {
-        spriteRenderer.material = outlineMaterial;;
+        spriteRenderer.material = outlineMaterial;
     }
 
     void OnMouseExit()
