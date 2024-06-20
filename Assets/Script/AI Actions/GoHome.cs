@@ -13,7 +13,7 @@ public class GoHome : BaseNpcAction
 
     private void leaveSeat(){
         GameObject seat = (GameObject)actionsDataList.getData("currentSeat");
-        if(!seat) return;
+        if(seat == null) return;
         SeatsData data = seat.GetComponent<SeatsData>();
         // Debug.Log("Occupiedby : "+data.getOccupiedBy());
         data.clearOccupied();
