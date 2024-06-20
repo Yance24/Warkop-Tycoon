@@ -14,6 +14,8 @@ public class BaseCostumerSpawner : MonoBehaviour
 
     private List<GameObject> spawnedCostumer = new List<GameObject>();
 
+    private bool CoroutineRunning;
+
     Coroutine spawnerProcess;
 
     public bool isNoCostumer(){
@@ -26,7 +28,7 @@ public class BaseCostumerSpawner : MonoBehaviour
     }
 
     void Start(){
-        spawnerProcess = StartCoroutine(spawner());
+        // spawnerProcess = StartCoroutine(spawner());
     }
 
     void OnEnable(){
@@ -41,11 +43,16 @@ public class BaseCostumerSpawner : MonoBehaviour
         if(DayCycle.IsDayEnd){
             StopCoroutine(spawnerProcess);
             Debug.Log("Coroutine stopped");
+            CoroutineRunning = false;
+        }else if(!CoroutineRunning){
+            spawnerProcess = StartCoroutine(spawner());
+            Debug.Log("Coroutine runned");
         }
     }
 
     IEnumerator spawner(){
         yield return null;
+        CoroutineRunning = true;
         while(true){
             if(Random.value < chanceSpawn){
                 spawnCostumer();
@@ -56,10 +63,17 @@ public class BaseCostumerSpawner : MonoBehaviour
 
     IEnumerator testSpawner(){
         yield return null;
+        CoroutineRunning = true;
         spawnCostumer();
         spawnCostumer();
         spawnCostumer();
-        yield return new WaitForSeconds(40);
+        yield return new WaitForSeconds(60);
+        spawnCostumer();
+        spawnCostumer();
+        spawnCostumer();
+        yield return new WaitForSeconds(60);
+        spawnCostumer();
+        spawnCostumer();
         spawnCostumer();
     }
 

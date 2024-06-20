@@ -54,15 +54,15 @@ public class BaseObjectsMovement : MonoBehaviour
 
     public void setTarget(Vector2 target){
         isEndDirection = false;
-        // if(this.target == target) {
-        //     isReached = true;
-        //     return;
-        // }
+        if((Vector2) transform.position == target) {
+            isReached = true;
+            return;
+        }
         this.target = target;
         isReached = false;
         getDirection();
         StartCoroutine(flipSprite());
-        if(moveDirection.x != 0) IsMoving = true;
+        IsMoving = true;
     }
 
     public void setTarget(Transform obj){
@@ -73,15 +73,15 @@ public class BaseObjectsMovement : MonoBehaviour
         }
         else isEndDirection = false;
         Vector2 target = obj.position;
-        // if(this.target == target) {
-        //     isReached = true;
-        //     return;
-        // }
+        if((Vector2) transform.position == target) {
+            isReached = true;
+            return;
+        }
         this.target = target;
         isReached = false;
         getDirection();
         StartCoroutine(flipSprite());
-        if(moveDirection.x != 0) IsMoving = true;
+        IsMoving = true;
     }
 
     public void setFlipX(bool value){

@@ -363,14 +363,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7109681602216301884, guid: aaaaceec519535943bf868ccd25206ca, type: 3}
-      propertyPath: passSeatsData
-      value: 
-      objectReference: {fileID: 244652461873249257}
-    - target: {fileID: 7109681602216301884, guid: aaaaceec519535943bf868ccd25206ca, type: 3}
-      propertyPath: passTargetedSeats
-      value: 
-      objectReference: {fileID: 8097225758363167138}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

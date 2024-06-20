@@ -14,13 +14,13 @@ public class PauseManager : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Escape)){
             pauseUI.SetActive(true);
-            Time.timeScale = 0f;
+            // Time.timeScale = 0f;
         }
     }
 
     public void resumeButton(){
         pauseUI.SetActive(false);
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
     }
 
     public void mainMenuButton(){

@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class GetSeats : BaseNpcAction
@@ -48,7 +46,6 @@ public class GetSeats : BaseNpcAction
         return false;
     }
 
-
     IEnumerator ActionProcess(){
         yield return null;
         // Getting targeted Seats
@@ -56,6 +53,7 @@ public class GetSeats : BaseNpcAction
         setupWaitingTime();
         while(!getSeats()){
             if(currentWaitingTime++ >= maxWaitingTime){
+                Debug.Log("Return Home");
                 failed();
                 yield break;
             }
