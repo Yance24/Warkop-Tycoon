@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,20 +21,29 @@ public class SeatsHitBoxHandler : MonoBehaviour, IInteractableObject
         if(data.IsOrdering && !NotaDataManager.Instance.isMaxed()){
             data.IsOrdering = false;
             spriteRenderer.material = defaultMaterial;
-            data.getOccupiedBy().SetCostumerOutline(false);
+            setOutlineMaterial(data.getOccupiedBy().costumerObjects,true);
+            setOutlineMaterial(data.chairs,true);
         }
     }
 
     public void onEnter(){
         if(data.IsOrdering){
             spriteRenderer.material = outlineMaterial;
-            data.getOccupiedBy().SetCostumerOutline(true);
+            setOutlineMaterial(data.getOccupiedBy().costumerObjects,true);
+            setOutlineMaterial(data.chairs,true);
         }
     }
     public void onExit(){
         if(data.IsOrdering){
             spriteRenderer.material = defaultMaterial;
-            data.getOccupiedBy().SetCostumerOutline(false);
+            setOutlineMaterial(data.getOccupiedBy().costumerObjects,false);
+            setOutlineMaterial(data.chairs,false);
+        }
+    }
+
+    public void setOutlineMaterial(List<GameObject> gameObjects,bool set){
+        foreach(GameObject obj in gameObjects){
+            obj.GetComponent<SpriteRenderer>().material = set? outlineMaterial : defaultMaterial ;
         }
     }
 }

@@ -13,10 +13,4 @@ public class CostumerGroupManager : MonoBehaviour
         // Debug.Log("Ai Handler Executing...");
         AiHandler.execute();
     }
-
-    public void SetCostumerOutline(bool set){
-        foreach(GameObject costumer in costumerObjects){
-            costumer.GetComponent<CostumerData>().setOutlineMaterial(set);
-        }
-    }
 }
