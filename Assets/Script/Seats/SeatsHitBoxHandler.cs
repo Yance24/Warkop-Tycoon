@@ -21,8 +21,8 @@ public class SeatsHitBoxHandler : MonoBehaviour, IInteractableObject
         if(data.IsOrdering && !NotaDataManager.Instance.isMaxed()){
             data.IsOrdering = false;
             spriteRenderer.material = defaultMaterial;
-            setOutlineMaterial(data.getOccupiedBy().costumerObjects,true);
-            setOutlineMaterial(data.chairs,true);
+            setOutlineMaterial(data.getOccupiedBy().costumerObjects,false);
+            setOutlineMaterial(data.chairs,false);
         }
     }
 
