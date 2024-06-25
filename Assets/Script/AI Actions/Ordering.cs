@@ -113,6 +113,10 @@ public class Ordering : BaseNpcAction
         currentWaitingTime = averageWaitingInSeconds + random;
     }
 
+    private void setupOrderingAnimation(bool set){
+        objectsRef[0].GetComponent<Animator>().SetBool("ordering",set);
+    }
+
     IEnumerator ActionProcess(){
         yield return new WaitForSeconds(0.5f);
 
@@ -123,11 +127,15 @@ public class Ordering : BaseNpcAction
             yield break;
         }
         data.IsOrdering = true;
+        setupOrderingAnimation(true);
+
         // Debug.Log("Waiting input..");
         //wait for the player to respond
         while(data.IsOrdering){
             yield return new WaitForFixedUpdate();
         }
+        setupOrderingAnimation(false);
+
         // Debug.Log("Setup Pick Menu");
         //Deciding which menu to pick
         if(!setupPickMenu()){
