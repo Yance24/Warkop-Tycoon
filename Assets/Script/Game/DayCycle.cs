@@ -36,11 +36,6 @@ public class DayCycle : MonoBehaviour
         get{return currentHourTime;}
     }
 
-    // void Awake(){
-    //     if(!Instance) Instance = this;
-    //     else Destroy(gameObject);
-    // }
-
     void Start(){
         restartDay();
     }

@@ -20,10 +20,6 @@ public class PlayerMouseRaycast : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePosition,Vector2.zero);
 
-        if(lastObject != null){
-            lastObject.onExit();
-            lastObject = null;
-        }
         if(hit.collider != null){
             IInteractableObject interactableObject = hit.collider.GetComponent<IInteractableObject>();
             if(interactableObject == null) return;
@@ -34,6 +30,10 @@ public class PlayerMouseRaycast : MonoBehaviour
                 interactableObject.onEnter();
             
             lastObject = interactableObject;
+            
+        }else if(lastObject != null){
+            lastObject.onExit();
+            lastObject = null;
         }
     }
 }

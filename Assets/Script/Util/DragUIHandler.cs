@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,12 +19,13 @@ public class DragUIHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     protected virtual void setupDrag(){
         rectTransform = transform as RectTransform;
         parentTransform = transform.parent as RectTransform;
-        RectTransform targetParent = targetDrag.parent as RectTransform;
-        targetBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(targetParent,targetDrag);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        RectTransform targetParent = targetDrag.parent as RectTransform;
+        targetBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(targetParent,targetDrag);
+        
         if(!itemClone){
             itemClone = Instantiate(gameObject);
             itemClone.transform.SetParent(parentTransform, false);

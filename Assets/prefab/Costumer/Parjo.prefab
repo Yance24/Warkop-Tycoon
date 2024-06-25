@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalSeat: {fileID: 0}
   hangoutAi: {fileID: 0}
+  outlineMaterial: {fileID: 2100000, guid: 2692d488f80122f49bebdde464233455, type: 2}
 --- !u!114 &8086855031783655914
 MonoBehaviour:
   m_ObjectHideFlags: 0

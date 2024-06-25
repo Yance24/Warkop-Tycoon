@@ -302,8 +302,8 @@ MonoBehaviour:
   isFacingLeft: 0
   isAvailable: 1
   chairs:
-  - {fileID: 6241447923216311593}
   - {fileID: 5395126589108576987}
+  - {fileID: 6241447923216311593}
 --- !u!70 &5334587438619069599
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -351,3 +351,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408de0ebeef5f554ea815d865aa4b381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: 2692d488f80122f49bebdde464233455, type: 2}
