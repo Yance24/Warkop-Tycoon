@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LinearAiProcessManager : BaseAiProcessManager
 {
-    [SerializeField]
+    // [SerializeField]
     private BaseNpcAction currentAction;
     IEnumerator runningProcess;
 
@@ -40,11 +40,9 @@ public class LinearAiProcessManager : BaseAiProcessManager
         do{
             if(currentAction.IsFinished){
                 if(currentAction.IsFailed){
-
                     do{
                         pickAction();
                     }while(currentAction && currentAction.isChained);
-
                 }else pickAction();
 
             }else if(!currentAction.IsRunning){

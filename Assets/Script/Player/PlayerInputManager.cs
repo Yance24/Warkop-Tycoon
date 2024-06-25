@@ -13,6 +13,12 @@ public class PlayerInputManager : MonoBehaviour
     }
     [SerializeField]
     private List<ActionHandler> actionHandlers = new List<ActionHandler>();
+    [SerializeField]
+    private BaseAiProcessManager defaultAction;
+    [SerializeField]
+    private float delayTimeToDefaultAction;
+    private float currentDelayTime = 0;
+    private bool defaultActionRunned = false;
     private List<InputBuffer> inputBufferList = new List<InputBuffer>();
     private BaseAiProcessManager currentProcess;
     private Transform currentData;
@@ -49,8 +55,20 @@ public class PlayerInputManager : MonoBehaviour
     IEnumerator bufferProcessing(){
         yield return null;
         while(true){
+            if(inputBufferList.Count == 0 && !currentProcess){
+                currentDelayTime += Time.fixedDeltaTime;
+                if(currentDelayTime > delayTimeToDefaultAction && !defaultActionRunned){
+                    defaultActionRunned = true;
+                    defaultAction.setup(gameObject);
+                    defaultAction.execute();
+                    // Debug.Log("default action runned");
+                }
+            }
+
             if(inputBufferList.Count > 0 && !currentProcess){
                 pullInputBuffer();
+                defaultActionRunned = false;
+                currentDelayTime = 0;
                 // Debug.Log("Current Buffer: "+currentProcess.name);
                 currentProcess.setup(gameObject);
                 currentProcess.execute();
@@ -59,6 +77,7 @@ public class PlayerInputManager : MonoBehaviour
                     Debug.Log(inputBuffer.inputType);
                 }
             }
+
             if(currentProcess && currentProcess.IsFinished) {
                 // Debug.Log(currentProcess.name +" Buffer is finished");
                 currentProcess = null;

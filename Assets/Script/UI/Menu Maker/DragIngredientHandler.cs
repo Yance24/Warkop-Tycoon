@@ -16,7 +16,9 @@ public class DragIngredientHandler : DragUIHandler
     protected override void execute()
     {
         base.execute();
+        // Debug.Log("Adding ingredients...");
         if(cupDataManager.addIngredients(dataManager.Ingredient)) dataManager.Ingredient.amount--;
+        // else Debug.Log("Add ingredients not successfull");
         IngredientsMenuItemManager.Instance.refreshIngredientsUi();
     }
 }

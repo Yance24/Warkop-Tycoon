@@ -114,7 +114,7 @@ public class Ordering : BaseNpcAction
     }
 
     IEnumerator ActionProcess(){
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
 
         //calling the player
         // Debug.Log("Setup Hitbox");

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerGoTo : PlayerNpcAction
 {
     public Transform target;
+    public bool waitForArrival = true;
 
     private List<BaseObjectsMovement> movements = new List<BaseObjectsMovement>();
 
@@ -46,7 +47,7 @@ public class PlayerGoTo : PlayerNpcAction
         }
         setupObjectMovement();
         gotoTarget();
-        while(!hasReachedSeats()){
+        while(!hasReachedSeats() && waitForArrival){
             yield return new WaitForFixedUpdate();
         }
         finish();
