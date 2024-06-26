@@ -42,11 +42,11 @@ public class BaseCostumerSpawner : MonoBehaviour
     void checkDayEnd(){
         if(DayCycle.IsDayEnd){
             StopCoroutine(spawnerProcess);
-            Debug.Log("Coroutine stopped");
+            // Debug.Log("Coroutine stopped");
             CoroutineRunning = false;
         }else if(!CoroutineRunning){
             spawnerProcess = StartCoroutine(spawner());
-            Debug.Log("Coroutine runned");
+            // Debug.Log("Coroutine runned");
         }
     }
 
@@ -64,17 +64,17 @@ public class BaseCostumerSpawner : MonoBehaviour
     IEnumerator testSpawner(){
         yield return null;
         CoroutineRunning = true;
-        spawnCostumer();
-        spawnCostumer();
-        spawnCostumer();
-        yield return new WaitForSeconds(60);
-        spawnCostumer();
-        spawnCostumer();
-        spawnCostumer();
-        yield return new WaitForSeconds(60);
-        spawnCostumer();
-        spawnCostumer();
-        spawnCostumer();
+        // spawnCostumer();
+        // spawnCostumer();
+        // spawnCostumer();
+        // yield return new WaitForSeconds(60);
+        // spawnCostumer();
+        // spawnCostumer();
+        // spawnCostumer();
+        // yield return new WaitForSeconds(60);
+        // spawnCostumer();
+        // spawnCostumer();
+        // spawnCostumer();
     }
 
     protected void spawnCostumer(){

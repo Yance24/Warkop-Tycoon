@@ -1,14 +1,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CupDataManager : MonoBehaviour
 {
-    public TextMeshProUGUI textUI;
+    public TextMeshProUGUI slotNumber;
     public int maxIngredientSlot;
+    public Sprite coffeeSprite;
+    public Sprite teaSprite;
+
+    private Image image;
+    private Sprite defaultSprite;
+    [SerializeField]
+    private bool isDefaultSprite = true;
     private List<StoredIngredient> addedIngredient = new List<StoredIngredient>();
+
+    void Start(){
+        image = GetComponent<Image>();
+        defaultSprite = image.sprite;
+    }
 
     void OnEnable(){
         refreshSlotUI();
@@ -16,7 +28,11 @@ public class CupDataManager : MonoBehaviour
 
     public bool addIngredients(StoredIngredient ingredient){
         if(addedIngredient.Count >= maxIngredientSlot) return false;
+
         addedIngredient.Add(ingredient);
+
+        if(isDefaultSprite) changeSprite(ingredient.ingredient.ingredientType);
+        
         refreshSlotUI();
         return true;
 
@@ -35,13 +51,33 @@ public class CupDataManager : MonoBehaviour
         if(craftedMenu != null){
             // Debug.Log(craftedMenu.name+" Have been crafted!!");
             if(MenuMakerManager.Instance.addMenu(craftedMenu.GetComponent<MenuParameter>())){
-                addedIngredient.Clear();    
+                addedIngredient.Clear();
+                changeSprite(Ingredient.type.none);
             }else{
                 Debug.Log("Tray Full!!!");
             }
             refreshSlotUI();
         }else{
             Debug.Log("There is no menu to be crafted");
+        }
+    }
+
+    private void changeSprite(Ingredient.type type){
+        switch(type){
+            case Ingredient.type.coffee:
+                image.sprite = coffeeSprite? coffeeSprite: defaultSprite;
+                isDefaultSprite = false;
+            break;
+
+            case Ingredient.type.tea:
+                image.sprite = teaSprite? teaSprite: defaultSprite;
+                isDefaultSprite = false;
+            break;
+
+            default:
+                image.sprite = defaultSprite;
+                isDefaultSprite = true;
+            break;
         }
     }
 
@@ -83,14 +119,15 @@ public class CupDataManager : MonoBehaviour
                 storedIngredient.amount++;
             }
         addedIngredient.Clear();
+        changeSprite(Ingredient.type.none);
         IngredientsMenuItemManager.Instance.refreshIngredientsUi();
         refreshSlotUI();
     }
 
     private void refreshSlotUI(){
-        if(textUI != null){
+        if(slotNumber != null){
             // Debug.Log(addedIngredient.Count+"/"+maxIngredientSlot);
-            textUI.text = addedIngredient.Count+"/"+maxIngredientSlot;
+            slotNumber.text = addedIngredient.Count+"/"+maxIngredientSlot;
         }
     }
 }
