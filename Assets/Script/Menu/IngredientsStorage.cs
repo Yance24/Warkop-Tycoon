@@ -18,6 +18,7 @@ public class IngredientsStorage : MonoBehaviour
 
     public List<StoredIngredient> StoredIngredients{
         get{return storedIngredients;}
+        set{storedIngredients = value;}
     }
 
     void Awake(){
