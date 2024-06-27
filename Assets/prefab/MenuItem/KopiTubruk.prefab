@@ -48,7 +48,7 @@ MonoBehaviour:
   sweet: 3
   bitter: 10
   temperature: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a3c57ba561a7acf438a4d7870cd58b33, type: 3}
   price: 8000
   menuName: Kopi Tubruk
   menuType: 1
