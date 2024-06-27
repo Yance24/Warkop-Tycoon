@@ -158,14 +158,6 @@ public class Ordering : BaseNpcAction
             yield return new WaitForSeconds(1);
         }
 
-        // NotaDataBuffer nota = NotaDataManager.Instance.NotaBuffers.Find(component => component.menu == pickedMenu);
-        // if(nota != null){
-        //     NotaDataManager.Instance.NotaBuffers.Remove(nota);
-        //     NotaDataManager.Instance.refreshUI();
-        //     failed();
-        //     yield break;
-        // }
-
         NotaDataManager.Instance.removeNota(pickedMenu);
         TrayManager.Instance.removeTray(pickedMenu);
         failed();

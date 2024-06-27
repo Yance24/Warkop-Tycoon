@@ -62,6 +62,7 @@ public class PlayerServeCostumer : PlayerNpcAction
             failed();
             yield break;
         }
+        
         yield return new WaitForSeconds(2);
         if(orderedMenus == null){
             failed();

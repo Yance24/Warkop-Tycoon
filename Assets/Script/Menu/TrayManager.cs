@@ -25,8 +25,7 @@ public class TrayManager : MonoBehaviour
     public int maximumTrayedMenu;
 
     public static TrayManager Instance{get; private set;}
-
-    [SerializeField]
+    
     private List<TrayedMenu> trayedMenus = new List<TrayedMenu>();
 
     void Awake(){
