@@ -25,12 +25,12 @@ public class TrayCupHandler : MonoBehaviour
         switch(menu.Type){
             case MenuParameter.MenuType.tea:
                 image.sprite = teaSprite? teaSprite: defaultSprite;
-                Debug.Log("tea");
+                // Debug.Log("tea");
             break;
 
             case MenuParameter.MenuType.coffee:
                 image.sprite = coffeeSprite? coffeeSprite: defaultSprite;
-                Debug.Log("coffee");
+                // Debug.Log("coffee");
             break;
 
             default:
