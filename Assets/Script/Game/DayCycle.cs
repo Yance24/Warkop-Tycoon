@@ -28,7 +28,7 @@ public class DayCycle : MonoBehaviour
             if(currentMinuteTime < 10) minuteText = "0"+currentMinuteTime;
             else minuteText = ""+currentMinuteTime;
 
-            return hourText +":"+ minuteText;
+            return hourText +" : "+ minuteText;
         }
     }
 

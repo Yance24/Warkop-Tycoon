@@ -64,7 +64,7 @@ public class PlayerServeCostumer : PlayerNpcAction
         }
         
         yield return new WaitForSeconds(2);
-        if(orderedMenus == null){
+        if(trayedMenu.notaData.menu == null){
             failed();
             yield break;
         }

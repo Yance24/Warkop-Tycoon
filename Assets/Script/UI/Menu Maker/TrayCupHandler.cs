@@ -17,7 +17,7 @@ public class TrayCupHandler : MonoBehaviour
     void Awake(){
         image = GetComponent<Image>();
         defaultSprite = image.sprite;
-        Debug.Log(defaultSprite);
+        // Debug.Log(defaultSprite);
     }
 
     public void setCup(MenuParameter menu, int index){
