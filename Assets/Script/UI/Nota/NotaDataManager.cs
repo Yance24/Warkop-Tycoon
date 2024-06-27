@@ -48,6 +48,19 @@ public class NotaDataManager : MonoBehaviour
         displayMaximizedMenu();
     }
 
+    public void removeNota(NotaDataBuffer nota){
+        notaBuffers.Remove(nota);
+        refreshUI();
+    }
+
+    public void removeNota(List<MenuParameter> orderedMenu){
+        NotaDataBuffer notaBuffer = notaBuffers.Find(component => component.menu == orderedMenu);
+        if(notaBuffer != null){
+            notaBuffers.Remove(notaBuffer);
+        }
+        refreshUI();
+    }
+
     public void showMenu(int index){
         currentPickedMenu = notaBuffers[index];
         displayMaximizedMenu();

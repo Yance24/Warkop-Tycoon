@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class TrayedMenu{
     public List<MenuParameter> createdMenus = new List<MenuParameter>();
     public NotaDataBuffer notaData;
@@ -25,6 +26,7 @@ public class TrayManager : MonoBehaviour
 
     public static TrayManager Instance{get; private set;}
 
+    [SerializeField]
     private List<TrayedMenu> trayedMenus = new List<TrayedMenu>();
 
     void Awake(){
@@ -43,5 +45,15 @@ public class TrayManager : MonoBehaviour
         TrayedMenu trayedMenu = trayedMenus[0];
         trayedMenus.RemoveAt(0);
         return trayedMenu;
+    }
+
+    public void removeTray(NotaDataBuffer nota){
+        TrayedMenu trayedMenu = trayedMenus.Find(component => component.notaData == nota);
+        trayedMenus.Remove(trayedMenu);
+    }
+
+    public void removeTray(List<MenuParameter> orderedMenu){
+        TrayedMenu trayedMenu = trayedMenus.Find(component => component.notaData.menu == orderedMenu);
+        trayedMenus.Remove(trayedMenu);
     }
 }

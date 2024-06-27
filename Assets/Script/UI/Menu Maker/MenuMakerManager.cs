@@ -48,8 +48,9 @@ public class MenuMakerManager : MonoBehaviour
         if(TrayManager.Instance.addTrayedMenu(new TrayedMenu(craftedMenu, NotaDataManager.Instance.BufferedNota))){
             craftedMenu.Clear();
             noDisplay();
-            NotaDataManager.Instance.NotaBuffers.Remove(NotaDataManager.Instance.BufferedNota);
-            NotaDataManager.Instance.refreshUI();
+            // NotaDataManager.Instance.NotaBuffers.Remove(NotaDataManager.Instance.BufferedNota);
+            // NotaDataManager.Instance.refreshUI();
+            NotaDataManager.Instance.removeNota(NotaDataManager.Instance.BufferedNota);
         }else{
             Debug.Log("trayed menu is full!");
         }
