@@ -48,7 +48,7 @@ MonoBehaviour:
   sweet: 8
   bitter: 2
   temperature: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3e6bf3d2174219d49b2d6cff619f90dd, type: 3}
   price: 6000
   menuName: TehPanas
   menuType: 2

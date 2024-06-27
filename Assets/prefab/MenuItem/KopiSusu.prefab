@@ -48,7 +48,7 @@ MonoBehaviour:
   sweet: 10
   bitter: 5
   temperature: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 642e7d1e9f86f8640b8594bca7968424, type: 3}
   price: 10000
   menuName: Kopi Susu
   menuType: 1
