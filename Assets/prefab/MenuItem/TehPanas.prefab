@@ -51,7 +51,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   price: 6000
   menuName: TehPanas
-  menuType: 0
+  menuType: 2
 --- !u!114 &7464411117436401247
 MonoBehaviour:
   m_ObjectHideFlags: 0

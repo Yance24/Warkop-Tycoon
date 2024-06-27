@@ -51,7 +51,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   price: 8000
   menuName: Kopi Tubruk
-  menuType: 0
+  menuType: 1
 --- !u!114 &5835659009556726905
 MonoBehaviour:
   m_ObjectHideFlags: 0

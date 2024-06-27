@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameLoader : MonoBehaviour
 {
+    public GameData gameData;
+
     void Start(){
         loadMoney();
         loadTime();
@@ -13,29 +15,18 @@ public class GameLoader : MonoBehaviour
     }
 
     private void loadMoney(){
-        PlayerMoney.Money = 10000;
+        PlayerMoney.Money = gameData.playerMoney;
     }
 
     private void loadTime(){
-        
+        DateTracker.Instance.CurrentDate = gameData.date;
     }
 
     private void loadIngredients(){
-        IngredientsStorage.Instance.StoredIngredients.Add(
-            new StoredIngredient{ingredient = IngredientsDatabase.Instance.getIngredient("Coffe Powder"), amount = 10}
-        );
-        IngredientsStorage.Instance.StoredIngredients.Add(
-            new StoredIngredient{ingredient = IngredientsDatabase.Instance.getIngredient("Sugar"), amount = 10}
-        );
-        IngredientsStorage.Instance.StoredIngredients.Add(
-            new StoredIngredient{ingredient = IngredientsDatabase.Instance.getIngredient("Milk"), amount = 10}
-        );
-        // IngredientsStorage.Instance.StoredIngredients.Add(
-        //     new StoredIngredient{ingredient = IngredientsDatabase.Instance.getIngredient("Tea"), amount = 10}
-        // );
+        IngredientsStorage.Instance.StoredIngredients = gameData.storedIngredients;
     }
 
     private void loadUnlockedMenu(){
-        
+        MenuAvailable.Instance.UnlockedMenu = gameData.unlockedMenu;
     }
 }

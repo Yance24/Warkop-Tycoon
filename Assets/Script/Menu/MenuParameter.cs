@@ -14,8 +14,9 @@ public class MenuParameter : BaseMenuParameter
 
     [Serializable]
     public enum MenuType{
-        Brew,Food,Other
+        none,coffee,tea
     }
+
     [SerializeField]
     private MenuType menuType;
 

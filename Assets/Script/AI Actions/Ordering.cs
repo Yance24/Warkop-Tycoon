@@ -49,11 +49,9 @@ public class Ordering : BaseNpcAction
             // Debug.Log("Costumer "+i+" : ");
             int totalScore = 0;
             foreach(MenuParameter menu in menuParameters){
-                if(menu.Type == MenuParameter.MenuType.Brew) {
-                    int currentScore = getUtilNumber(costumerParameter[i],menu);
-                    totalScore += currentScore;
-                    menuScore.Add(new MenuScore{score = currentScore, menu = menu});
-                }
+                int currentScore = getUtilNumber(costumerParameter[i],menu);
+                totalScore += currentScore;
+                menuScore.Add(new MenuScore{score = currentScore, menu = menu});
             }
             // Debug.Log("Getted Menu"+getMenu(menuScore,totalScore).name);
             pickedMenu.Add(getMenu(menuScore,totalScore));

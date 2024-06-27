@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientIcon: {fileID: 0}
   ingredientName: Milk
+  ingredientType: 2
   price: 1000

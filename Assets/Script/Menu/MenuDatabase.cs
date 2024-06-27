@@ -19,12 +19,17 @@ public class MenuDatabase : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // public GameObject tryCraftMenu(List<Ingredient> ingredients){
-    //     foreach(GameObject gameObject in menuPrefab){
-    //         if(gameObject.GetComponent<IngredientsToCraft>().ingredients == ingredients){
-    //             return gameObject;
-    //         }
-    //     }
-    //     return null;
-    // }
+    public List<MenuParameter> GetMenuList{
+        get{
+            List<MenuParameter> menuList = new List<MenuParameter>();
+            foreach(GameObject menu in menuPrefab){
+                menuList.Add(menu.GetComponent<MenuParameter>());
+            }
+            return menuList;
+        }
+    }
+
+    public GameObject getMenu(string name){
+        return GetMenuList.Find(component => component.Name == name).gameObject;
+    }
 }

@@ -51,7 +51,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   price: 10000
   menuName: Kopi Susu
-  menuType: 0
+  menuType: 1
 --- !u!114 &-8160289766193944593
 MonoBehaviour:
   m_ObjectHideFlags: 0

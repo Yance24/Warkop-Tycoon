@@ -8,6 +8,10 @@ public class MenuAvailable : MonoBehaviour
     [SerializeField]
     private List<GameObject> menuPrefab = new List<GameObject>();
 
+    public List<GameObject> UnlockedMenu{
+        get { return menuPrefab; }
+        set{menuPrefab = value;}
+    }
     public List<MenuParameter> menuParameters = new List<MenuParameter>();
     // private List<IngredientsToCraft>
 

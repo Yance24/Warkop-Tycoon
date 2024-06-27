@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LinearAiProcessManager : BaseAiProcessManager
 {
-    // [SerializeField]
+    [SerializeField]
     private BaseNpcAction currentAction;
     IEnumerator runningProcess;
 
