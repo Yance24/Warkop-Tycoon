@@ -32,7 +32,7 @@ public static class GameDataUtil{
 
     public static void update(GameData data){
         data.playerMoney = PlayerMoney.Money;
-        data.date = DateTracker.Instance.CurrentDate;
+        data.date = DateTracker.CurrentDate;
         data.storedIngredients = IngredientsStorage.Instance.StoredIngredients;
         data.unlockedMenu = MenuAvailable.Instance.UnlockedMenu;
     }

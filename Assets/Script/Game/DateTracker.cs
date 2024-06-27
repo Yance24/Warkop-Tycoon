@@ -12,11 +12,16 @@ public class DateTracker : MonoBehaviour
         public int year;
     }
     [SerializeField]
-    private Date currentDate = new Date();
+    private static Date currentDate = new Date();
 
-    public Date CurrentDate{
+    public static Action DateChange;
+
+    public static Date CurrentDate{
         get{return currentDate;}
-        set{currentDate = value;}
+        set{
+            currentDate = value;
+            DateChange?.Invoke();
+        }
     }
 
     void Awake(){
@@ -37,5 +42,6 @@ public class DateTracker : MonoBehaviour
                 currentDate.year += 1;
             }
         }
+        DateChange?.Invoke();
     }
 }

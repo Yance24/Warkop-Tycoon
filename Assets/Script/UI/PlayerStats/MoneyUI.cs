@@ -20,7 +20,7 @@ public class MoneyUI : MonoBehaviour
     }
 
     public void refreshUI(){
-        textUI.text = "Rp "+formatMoney(PlayerMoney.Money);
+        textUI.text = formatMoney(PlayerMoney.Money);
     }
 
     private string formatMoney(int money){

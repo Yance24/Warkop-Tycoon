@@ -19,7 +19,7 @@ public class GameLoader : MonoBehaviour
     }
 
     private void loadTime(){
-        DateTracker.Instance.CurrentDate = gameData.date;
+        DateTracker.CurrentDate = gameData.date;
     }
 
     private void loadIngredients(){
