@@ -1,10 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameData", menuName = "ScriptableObjects/GameData", order = 1)]
-public class GameData : ScriptableObject
+[CreateAssetMenu(fileName = "GameDataObject", menuName = "ScriptableObjects/GameDataObject", order = 1)]
+public class GameDataObject : ScriptableObject{
+    public GameData gameData = new GameData();
+}
+
+
+[Serializable]
+public class GameData
 {
     public int playerMoney;
     public DateTracker.Date date;
@@ -14,7 +21,7 @@ public class GameData : ScriptableObject
 }
 
 public static class GameDataUtil{
-    public static void CopyValues(GameData source, GameData destination)
+    public static void CopyValues(GameData source, GameDataObject destination)
     {
         if (source == null || destination == null)
         {
@@ -26,14 +33,16 @@ public static class GameDataUtil{
 
         foreach (FieldInfo field in fields)
         {
-            field.SetValue(destination, field.GetValue(source));
+            field.SetValue(destination.gameData, field.GetValue(source));
         }
+
+        // destination.gameData = source;
     }
 
-    public static void update(GameData data){
-        data.playerMoney = PlayerMoney.Money;
-        data.date = DateTracker.CurrentDate;
-        data.storedIngredients = IngredientsStorage.Instance.StoredIngredients;
-        data.unlockedMenu = MenuAvailable.Instance.UnlockedMenu;
+    public static void update(GameDataObject gameDataObj){
+        gameDataObj.gameData.playerMoney = PlayerMoney.Money;
+        gameDataObj.gameData.date = DateTracker.CurrentDate;
+        gameDataObj.gameData.storedIngredients = IngredientsStorage.Instance.StoredIngredients;
+        gameDataObj.gameData.unlockedMenu = MenuAvailable.Instance.UnlockedMenu;
     }
 }

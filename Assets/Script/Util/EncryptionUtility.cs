@@ -37,7 +37,8 @@ public static class EncryptionUtility
 
         using (var msDecrypt = new MemoryStream(fullCipher))
         {
-            byte[] iv = new byte[BitConverter.ToInt32(fullCipher, 0)];
+            // Read the fixed size IV (typically 16 bytes for AES)
+            byte[] iv = new byte[16];
             msDecrypt.Read(iv, 0, iv.Length);
 
             byte[] key = Encoding.UTF8.GetBytes(encryptionKey);

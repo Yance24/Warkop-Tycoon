@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DateTracker : MonoBehaviour
 {
-    public static DateTracker Instance{get; private set;}
+    // public static DateTracker Instance{get; private set;}
 
     [Serializable]
     public class Date{
@@ -24,12 +24,12 @@ public class DateTracker : MonoBehaviour
         }
     }
 
-    void Awake(){
-        if(!Instance) Instance = this;
-        else Destroy(gameObject);
-    }
+    // void Awake(){
+    //     if(!Instance) Instance = this;
+    //     else Destroy(gameObject);
+    // }
 
-    public void nextWeek(){
+    public static void nextWeek(){
         currentDate.week += 1;
 
         if(currentDate.week > 4){

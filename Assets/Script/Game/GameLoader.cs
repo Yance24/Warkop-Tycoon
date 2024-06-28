@@ -1,11 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameLoader : MonoBehaviour
 {
-    public GameData gameData;
+    public static GameLoader Instance{private set; get;}
+    public GameDataObject gameDataObj;
+
+    void Awake(){
+        if(!Instance) Instance = this;
+        else Destroy(gameObject);
+    }
 
     void Start(){
         loadMoney();
@@ -15,18 +22,18 @@ public class GameLoader : MonoBehaviour
     }
 
     private void loadMoney(){
-        PlayerMoney.Money = gameData.playerMoney;
+        PlayerMoney.Money = gameDataObj.gameData.playerMoney;
     }
 
     private void loadTime(){
-        DateTracker.CurrentDate = gameData.date;
+        DateTracker.CurrentDate = gameDataObj.gameData.date;
     }
 
     private void loadIngredients(){
-        IngredientsStorage.Instance.StoredIngredients = gameData.storedIngredients;
+        IngredientsStorage.Instance.StoredIngredients = gameDataObj.gameData.storedIngredients;
     }
 
     private void loadUnlockedMenu(){
-        MenuAvailable.Instance.UnlockedMenu = gameData.unlockedMenu;
+        MenuAvailable.Instance.UnlockedMenu = gameDataObj.gameData.unlockedMenu;
     }
 }

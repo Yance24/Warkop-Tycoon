@@ -16,7 +16,7 @@ public class DayCycle : MonoBehaviour
     private static int currentHourTime;
     private static int currentMinuteTime;
     public static event Action TimeChange;
-    public static bool IsDayEnd;
+    public static bool IsDayEnd = false;
 
     public static string CurrentTime{
         get{
@@ -45,6 +45,14 @@ public class DayCycle : MonoBehaviour
         currentMinuteTime = 0;
         StartCoroutine(countTime());
         TimeChange?.Invoke();
+
+        if(IsDayEnd){
+            DateTracker.nextWeek();
+
+            GameDataUtil.update(GameLoader.Instance.gameDataObj);
+            SaveLoadManager.saveGame(GameLoader.Instance.gameDataObj);
+        }
+
         IsDayEnd = false;
     }
 

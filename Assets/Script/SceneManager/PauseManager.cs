@@ -24,6 +24,8 @@ public class PauseManager : MonoBehaviour
     }
 
     public void mainMenuButton(){
+        GameDataUtil.update(GameLoader.Instance.gameDataObj);
+        SaveLoadManager.saveGame(GameLoader.Instance.gameDataObj);
         SceneManager.LoadScene("TitleScreen");
     }
 }

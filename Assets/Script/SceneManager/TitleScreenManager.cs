@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenManager : MonoBehaviour
 {
-    public GameData newGameData;
-    public GameData gameData;
+    public GameDataObject newGameData;
+    public GameDataObject gameData;
     
     public void newGameButton(){
         setNewGameData();
@@ -14,7 +14,7 @@ public class TitleScreenManager : MonoBehaviour
     }
 
     private void setNewGameData(){
-        GameDataUtil.CopyValues(newGameData,gameData);        
+        GameDataUtil.CopyValues(newGameData.gameData,gameData);
     }
 
     public void loadGame(){

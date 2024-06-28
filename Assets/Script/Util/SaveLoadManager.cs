@@ -7,16 +7,16 @@ public static class SaveLoadManager
 {
     private static string saveFilePath = Path.Combine(Application.persistentDataPath,"save00.json");
 
-    public static void saveGame(GameData data){
-        string json = JsonUtility.ToJson(data);
-        string encryptionJson = EncryptionUtility.EncryptString(json);
-        File.WriteAllText(saveFilePath,encryptionJson);
+    public static void saveGame(GameDataObject data){
+        string json = JsonUtility.ToJson(data.gameData);
+        // string encryptionJson = EncryptionUtility.EncryptString(json);
+        File.WriteAllText(saveFilePath,json);
     }
 
     public static GameData loadGame(){
         if(File.Exists(saveFilePath)){
-            string encryptionJson = File.ReadAllText(saveFilePath);
-            string json = EncryptionUtility.DecryptString(encryptionJson);
+            string json = File.ReadAllText(saveFilePath);
+            // string json = EncryptionUtility.DecryptString(encryptionJson);
             return JsonUtility.FromJson<GameData>(json);
         }
         return null;
