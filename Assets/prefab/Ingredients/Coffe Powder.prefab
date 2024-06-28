@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientIcon: {fileID: 0}
   ingredientName: Coffe Powder
-  price: 5000
+  ingredientType: 0
+  price: 4000

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 660235d43a04b1a40868fc22b50890b9, type: 3}
   m_Name: newGameData
-  m_EditorClassIdentifier: Assembly-CSharp::GameDataObject
+  m_EditorClassIdentifier: 
   gameData:
     playerMoney: 10000
     date:
@@ -26,6 +26,6 @@ MonoBehaviour:
     - ingredient: {fileID: 6221903918879826675, guid: f801e85bf4e1ee64abba087d7f9044eb, type: 3}
       amount: 10
     unlockedMenu:
-    - {fileID: 7433678133464317882, guid: 7498226eec3f81e40900dd69ca94371c, type: 3}
     - {fileID: 2050545859150360386, guid: 168b60321103e3b43802b2b54c0a218b, type: 3}
+    - {fileID: 7433678133464317882, guid: 7498226eec3f81e40900dd69ca94371c, type: 3}
     playerReputation: 100

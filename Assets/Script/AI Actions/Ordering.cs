@@ -16,7 +16,7 @@ public class Ordering : BaseNpcAction
     private List<MenuParameter> menuParameters;
     private List<MenuParameter> pickedMenu = new List<MenuParameter>();
 
-    private int currentWaitingTime;
+    private float currentWaitingTime;
 
     protected class MenuScore{
         public int score;
@@ -129,7 +129,15 @@ public class Ordering : BaseNpcAction
 
         // Debug.Log("Waiting input..");
         //wait for the player to respond
+        getWaitingTime();
         while(data.IsOrdering){
+            if(currentWaitingTime <= 0){
+                failed();
+                data.IsOrdering = false;
+                ReputationSystem.Instance.CurrentReputation -= (10 * objectsRef.Count);
+                yield break;
+            }
+            currentWaitingTime -= Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
         setupOrderingAnimation(false);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class talk : BaseNpcAction
 {
+    public bool waitTillFinish = true;
     public int talkerIndex;
     public string text;
     public float lifeSpan;
@@ -29,6 +30,7 @@ public class talk : BaseNpcAction
         }
 
         costumerBubbleChat.setText(text);
+        if(!waitTillFinish) finish();
         yield return new WaitForSeconds(lifeSpan);
         costumerBubbleChat.clearText();
         finish();

@@ -10,7 +10,7 @@ public class TitleScreenManager : MonoBehaviour
     public void newGameButton(){
         setNewGameData();
         SaveLoadManager.saveGame(gameData);
-        SceneManager.LoadScene("GamePlay");
+        SceneManager.LoadScene("Intro");
     }
 
     private void setNewGameData(){

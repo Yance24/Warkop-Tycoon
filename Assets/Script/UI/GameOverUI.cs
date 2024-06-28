@@ -17,7 +17,7 @@ public class GameOverUI : MonoBehaviour
 
     public void gameOverSequence(){
         BaseCostumerSpawner.Instance.stopSpawner();
-        DayCycle.Instance.stopTime();
+        // DayCycle.Instance.stopTime();
         // MenuMakerManager.Instance.noDisplay();
         // NotaDataManager.Instance.noDisplay();
         

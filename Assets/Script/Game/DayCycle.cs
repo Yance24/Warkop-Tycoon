@@ -43,7 +43,7 @@ public class DayCycle : MonoBehaviour
     public void restartDay(){
         currentHourTime = openTime;
         currentMinuteTime = 0;
-        stopTime();
+        startTime();
         TimeChange?.Invoke();
 
         if(IsDayEnd){
@@ -55,7 +55,7 @@ public class DayCycle : MonoBehaviour
         IsDayEnd = false;
     }
 
-    public void stopTime(){
+    public void startTime(){
         StartCoroutine(countTime());
     }
 
