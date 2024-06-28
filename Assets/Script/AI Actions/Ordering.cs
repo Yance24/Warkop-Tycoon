@@ -158,6 +158,7 @@ public class Ordering : BaseNpcAction
             yield return new WaitForSeconds(1);
         }
 
+        ReputationSystem.Instance.CurrentReputation -= (10 * objectsRef.Count);
         NotaDataManager.Instance.removeNota(pickedMenu);
         TrayManager.Instance.removeTray(pickedMenu);
         failed();

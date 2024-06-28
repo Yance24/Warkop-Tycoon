@@ -28,3 +28,4 @@ MonoBehaviour:
     unlockedMenu:
     - {fileID: 7433678133464317882, guid: 7498226eec3f81e40900dd69ca94371c, type: 3}
     - {fileID: 2050545859150360386, guid: 168b60321103e3b43802b2b54c0a218b, type: 3}
+    playerReputation: 100

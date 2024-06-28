@@ -22,6 +22,12 @@ public static class SaveLoadManager
         return null;
     }
 
+    public static void removeSave(){
+        if(File.Exists(saveFilePath)){
+            File.Delete(saveFilePath);
+        }
+    }
+
     public static bool checkLoadGame(){
         return File.Exists(saveFilePath);
     }

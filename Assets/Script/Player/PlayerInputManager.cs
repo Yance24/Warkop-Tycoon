@@ -73,9 +73,9 @@ public class PlayerInputManager : MonoBehaviour
                 currentProcess.setup(gameObject);
                 currentProcess.execute();
                 // Debug.Log("inputBuffer List: ");
-                foreach(InputBuffer inputBuffer in inputBufferList){
-                    Debug.Log(inputBuffer.inputType);
-                }
+                // foreach(InputBuffer inputBuffer in inputBufferList){
+                //     Debug.Log(inputBuffer.inputType);
+                // }
             }
 
             if(currentProcess && currentProcess.IsFinished) {

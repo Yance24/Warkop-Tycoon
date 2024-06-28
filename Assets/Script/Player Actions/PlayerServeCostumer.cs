@@ -30,29 +30,35 @@ public class PlayerServeCostumer : PlayerNpcAction
         //     Debug.Log("Ordered Menu : "+orderedMenu.name);
         // }
         
-        if(checkServedMenu(createdMenus,orderedMenus)){
-            //Correct order
-            // Debug.Log("Correct Order!");
+        // if(checkServedMenu(createdMenus,orderedMenus)){
+        //     //Correct order
+        //     // Debug.Log("Correct Order!");
             
-        }else{
-            //false order
-            // Debug.Log("Wrong Order!");
-        }
-    }
+        // }else{
+        //     //false order
+        //     // Debug.Log("Wrong Order!");
+        // }
 
-    private bool checkServedMenu(List<MenuParameter> createdMenus, List<MenuParameter> orderedMenus){
-        foreach(MenuParameter createdMenu in createdMenus){
+        foreach(MenuParameter orderedMenu in orderedMenus){
             // Debug.Log("created menu: "+createdMenu.name);
-            MenuParameter orderedMenu = orderedMenus.Find(component => component.name == createdMenu.name);
-            if(orderedMenu){
-                orderedMenus.Remove(createdMenu);
+            MenuParameter createdMenu = createdMenus.Find(component => component.name == orderedMenu.name);
+            if(createdMenu){
+                createdMenus.Remove(createdMenu);
                 PlayerMoney.Money += orderedMenu.Price;
+                ReputationSystem.Instance.CurrentReputation += 1;
+            }else{
+                ReputationSystem.Instance.CurrentReputation -= 5;
             }
         }
         CostumerGroupManager costumerGroup = trayedMenu.notaData.seatsData.getOccupiedBy();
         costumerGroup.AiHandler.GetComponent<ActionsDataList>().setData("Served",true);
-        return orderedMenus.Count <= 0;
+
     }
+
+    // private bool checkServedMenu(List<MenuParameter> createdMenus, List<MenuParameter> orderedMenus){
+        
+    //     return orderedMenus.Count <= 0;
+    // }
 
     IEnumerator ActionProcess(){
         yield return null;
@@ -69,6 +75,7 @@ public class PlayerServeCostumer : PlayerNpcAction
             yield break;
         }
         serveCostumer();
+
 
 
         finish();

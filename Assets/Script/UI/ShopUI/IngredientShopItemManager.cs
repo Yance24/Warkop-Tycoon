@@ -47,6 +47,7 @@ public class IngredientShopItemManager : MonoBehaviour
     }
 
     public void minButton(){
+        if(Amount <= 0) return;
         Amount--;
         IngredientShopManager.Instance.refreshTotalPrice();
     }

@@ -43,17 +43,20 @@ public class DayCycle : MonoBehaviour
     public void restartDay(){
         currentHourTime = openTime;
         currentMinuteTime = 0;
-        StartCoroutine(countTime());
+        stopTime();
         TimeChange?.Invoke();
 
         if(IsDayEnd){
             DateTracker.nextWeek();
-
             GameDataUtil.update(GameLoader.Instance.gameDataObj);
             SaveLoadManager.saveGame(GameLoader.Instance.gameDataObj);
         }
 
         IsDayEnd = false;
+    }
+
+    public void stopTime(){
+        StartCoroutine(countTime());
     }
 
     IEnumerator countTime(){
@@ -77,6 +80,7 @@ public class DayCycle : MonoBehaviour
     }
 
     void endDaySequence(){
+        DayEndPayment.Instance.execute();
         ShopUIManager.Instance.displayIngredientShop();
     }
 }

@@ -19,6 +19,7 @@ public class GameLoader : MonoBehaviour
         loadTime();
         loadIngredients();
         loadUnlockedMenu();
+        loadReputation();
     }
 
     private void loadMoney(){
@@ -35,5 +36,9 @@ public class GameLoader : MonoBehaviour
 
     private void loadUnlockedMenu(){
         MenuAvailable.Instance.UnlockedMenu = gameDataObj.gameData.unlockedMenu;
+    }
+
+    private void loadReputation(){
+        ReputationSystem.Instance.CurrentReputation = gameDataObj.gameData.playerReputation;
     }
 }

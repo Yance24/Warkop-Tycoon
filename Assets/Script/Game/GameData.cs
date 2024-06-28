@@ -17,6 +17,7 @@ public class GameData
     public DateTracker.Date date;
     public List<StoredIngredient> storedIngredients;
     public List<GameObject> unlockedMenu;
+    public int playerReputation;
 
 }
 
@@ -44,5 +45,6 @@ public static class GameDataUtil{
         gameDataObj.gameData.date = DateTracker.CurrentDate;
         gameDataObj.gameData.storedIngredients = IngredientsStorage.Instance.StoredIngredients;
         gameDataObj.gameData.unlockedMenu = MenuAvailable.Instance.UnlockedMenu;
+        gameDataObj.gameData.playerReputation = ReputationSystem.Instance.CurrentReputation;
     }
 }

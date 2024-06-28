@@ -29,7 +29,7 @@ public class IngredientShopManager : MonoBehaviour
 
     public void buyButton(){
         if(totalPrice <= PlayerMoney.Money){
-            Debug.Log("Managed To Buy!");
+            // Debug.Log("Managed To Buy!");
             PlayerMoney.Money -= totalPrice;
             foreach(IngredientShopItemManager item in shopItems){
                 IngredientsStorage.Instance.addIngredient(item.IngredientRef,item.Amount);
@@ -37,7 +37,7 @@ public class IngredientShopManager : MonoBehaviour
             ShopUIManager.Instance.noDisplay();
             DayCycle.Instance.restartDay();
         }else{
-            Debug.Log("Not Enough Money");
+            // Debug.Log("Not Enough Money");
         }
     }
 

@@ -41,13 +41,18 @@ public class BaseCostumerSpawner : MonoBehaviour
 
     void checkDayEnd(){
         if(DayCycle.IsDayEnd){
-            StopCoroutine(spawnerProcess);
+            stopSpawner();
             // Debug.Log("Coroutine stopped");
-            CoroutineRunning = false;
+            
         }else if(!CoroutineRunning){
             spawnerProcess = StartCoroutine(spawner());
             // Debug.Log("Coroutine runned");
         }
+    }
+
+    public void stopSpawner(){
+        StopCoroutine(spawnerProcess);
+        CoroutineRunning = false;
     }
 
     IEnumerator spawner(){
