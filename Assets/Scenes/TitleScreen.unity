@@ -956,7 +956,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29f20dd5ec8e8345be1dfd90944c3a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameData: {fileID: 11400000, guid: c3bdbb5b7898ce04ea80ff3fd9ab218a, type: 2}
+  newGameData:
+    playerMoney: 10000
+    date:
+      week: 1
+      month: 1
+      year: 1
+    storedIngredients:
+    - ingredient: {fileID: 8100052699462834704, guid: 187f9d44c7e2ab146bb30270a15cb2e4, type: 3}
+      amount: 10
+    - ingredient: {fileID: 6319230173447403542, guid: 96c6cbac04ee27343a1c7ba76cd24b6b, type: 3}
+      amount: 10
+    - ingredient: {fileID: 6221903918879826675, guid: f801e85bf4e1ee64abba087d7f9044eb, type: 3}
+      amount: 10
+    unlockedMenu:
+    - {fileID: 2050545859150360386, guid: 168b60321103e3b43802b2b54c0a218b, type: 3}
+    - {fileID: 7433678133464317882, guid: 7498226eec3f81e40900dd69ca94371c, type: 3}
+    playerReputation: 100
   gameData: {fileID: 11400000, guid: c9dab3bc1ebf0f94fae402da82a101a6, type: 2}
 --- !u!1 &1585259681
 GameObject:
@@ -1482,7 +1498,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29f20dd5ec8e8345be1dfd90944c3a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameData: {fileID: 0}
+  newGameData:
+    playerMoney: 0
+    date:
+      week: 0
+      month: 0
+      year: 0
+    storedIngredients: []
+    unlockedMenu: []
+    playerReputation: 0
   gameData: {fileID: 0}
 --- !u!1 &2008918678
 GameObject:

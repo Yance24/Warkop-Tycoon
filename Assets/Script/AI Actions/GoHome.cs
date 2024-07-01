@@ -16,6 +16,7 @@ public class GoHome : BaseNpcAction
         if(seat == null) return;
         SeatsData data = seat.GetComponent<SeatsData>();
         // Debug.Log("Occupiedby : "+data.getOccupiedBy());
+        data.IsServed = false;
         data.clearOccupied();
         // Debug.Log("Occupiedby : "+data.getOccupiedBy());
     }

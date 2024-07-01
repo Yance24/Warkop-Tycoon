@@ -160,6 +160,7 @@ public class Ordering : BaseNpcAction
             if((bool?)actionsDataList.getData("Served") != null){
                 // Debug.Log("Served");
                 finish();
+                data.IsServed = true;
                 yield break;
             }
             currentWaitingTime--;

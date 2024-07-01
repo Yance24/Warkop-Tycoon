@@ -4,6 +4,8 @@ using UnityEngine;
 public class SeatsData : FacilityData
 {
     public List<GameObject> chairs;
+
+    public GameObject servedDrinks;
     
     protected CostumerGroupManager occupiedBy;
     public bool IsOccupied{
@@ -14,9 +16,27 @@ public class SeatsData : FacilityData
     // }
 
     private bool isOrdering = false;
+    private bool isServed = false;
     public bool IsOrdering{
         get{return isOrdering;}
         set{isOrdering = value;}
+    }
+
+    public bool IsServed{
+        get{return isServed;}
+        set{
+            isServed = value;
+            setServedDrink();
+        }
+    }
+
+    void Start(){
+        IsOrdering = false;
+        IsServed = false;
+    }
+
+    private void setServedDrink(){
+        servedDrinks.SetActive(isServed);
     }
 
     public void setOccupied(CostumerGroupManager occupiedBy){
